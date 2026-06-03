@@ -1,0 +1,30 @@
+id: issue.example-private-claim
+type: issue
+title: Explore a private draft claim against the public graph seed
+status: open
+created_at: "2026-06-04T00:00:00Z"
+updated_at: "2026-06-04T00:00:00Z"
+authors:
+  - workspace-user
+severity: low
+description: |
+  Demonstrate the basic workspace flow with a private draft claim that depends
+  on the public `definition.graph` seed artifact.
+
+  Acceptance criteria:
+  - Keep `claim.example-private` as `status: draft`.
+  - Do not claim novelty or accepted knowledge.
+  - Keep the dependency direction private-to-public.
+  - Run `cosheaf workspace info`.
+  - Run `cosheaf validate`.
+  - Run `cosheaf gate run`.
+  - Run `cosheaf gate run --pr-checklist .github/pull_request_template.md`.
+  - Run `cosheaf context build issue.example-private-claim` when context-pack
+    tooling is available.
+related_artifacts:
+  - claim.example-private
+  - definition.graph
+tags:
+  - workspace-demo
+  - private-draft
+  - graph-theory
