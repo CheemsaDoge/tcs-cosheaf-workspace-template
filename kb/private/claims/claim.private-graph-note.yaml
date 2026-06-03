@@ -1,0 +1,27 @@
+id: claim.private-graph-note
+type: claim
+title: Private graph note
+domain:
+- graph-theory
+status: draft
+created_at: 2026-06-03T00:00:00Z
+updated_at: 2026-06-03T00:00:00Z
+authors:
+- workspace-user
+depends_on:
+- definition.graph
+supersedes: []
+tags:
+- private
+- example
+statement: This private draft note depends on the public graph definition seed.
+evidence:
+- kind: external
+  path: external:workspace-template-example
+  summary: Template-only private draft example; not an accepted research claim.
+review:
+  state: requested
+  notes: Example private draft artifact for workspace onboarding.
+risk:
+  level: low
+  notes: Draft-only template example.

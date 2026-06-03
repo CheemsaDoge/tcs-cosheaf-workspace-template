@@ -1,0 +1,29 @@
+name: Research issue
+description: Track a nontrivial workspace research task.
+title: "[research] "
+labels:
+  - research
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Research question
+      description: State the narrow question or task.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: List relevant public/private artifacts, failures, or constraints.
+    validations:
+      required: false
+  - type: checkboxes
+    id: policy
+    attributes:
+      label: Policy checks
+      options:
+        - label: Private conjectures will stay in the private KB.
+          required: true
+        - label: The task is small enough for one focused branch and PR.
+          required: true
