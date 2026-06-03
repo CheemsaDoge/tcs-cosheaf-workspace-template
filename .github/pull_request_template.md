@@ -1,20 +1,40 @@
 ## Summary
 
-- 
+- TODO
 
-## Workspace Policy
+## Changed Files
 
-- [ ] Private research remains under `kb/private/`.
-- [ ] Public artifacts do not depend on private artifacts.
-- [ ] Accepted artifacts do not depend on draft artifacts.
-- [ ] Source metadata and review expectations are documented for any promoted artifact.
+- TODO
 
-## Validation
+## Tests Run
 
 - [ ] `cosheaf workspace info`
 - [ ] `cosheaf validate`
 - [ ] `cosheaf gate run`
+- [ ] `cosheaf gate run --pr-checklist .github/pull_request_template.md`
 
-## Known Limitations
+## Risks
 
-- 
+Workspace policy checklist:
+
+- [ ] Private research remains under `kb/private/`.
+- [ ] Public artifacts do not depend on private artifacts.
+- [ ] Accepted artifacts do not depend on draft artifacts.
+- [ ] Accepted artifacts have review and gate evidence.
+- [ ] Public accepted artifacts have source metadata.
+
+## Interface Changes
+
+- TODO
+
+## Documentation Changes
+
+- TODO
+
+## Artifact/Schema Changes
+
+- TODO
+
+## Gatekeeper Result
+
+- TODO

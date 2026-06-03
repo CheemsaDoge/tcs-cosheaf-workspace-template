@@ -4,6 +4,11 @@ This is a user workspace template for TCS-Cosheaf. It is not the framework repos
 
 ## Workspace Model
 
+- `tcs-cosheaf` is the framework repository and provides the CLI, schemas,
+  validation, gates, graph tools, and context-pack tooling.
+- `tcs-kb-public` is the public reusable KB repository.
+- This repository is a user-facing workspace template that combines the
+  framework package, a readonly public KB root, and a writable private KB root.
 - Public KB is readonly common knowledge.
 - Private KB is the user's writable research overlay.
 - Private artifacts may depend on public artifacts.
@@ -28,6 +33,7 @@ This is a user workspace template for TCS-Cosheaf. It is not the framework repos
 - Treat `kb/public/` as readonly once it is replaced by or mounted from `tcs-kb-public`.
 - Never leak private research into public KB unless it is explicitly promoted, reviewed, and gated.
 - Accepted artifacts require source metadata and human review.
+- Public accepted artifacts require structured source metadata.
 
 ## Validation
 
@@ -36,5 +42,6 @@ Run available checks before opening or updating a PR:
 - `cosheaf workspace info`
 - `cosheaf validate`
 - `cosheaf gate run`
+- `cosheaf gate run --pr-checklist .github/pull_request_template.md`
 
 If a command is unavailable or fails due to the environment, report it exactly. Skipped is not pass.

@@ -29,3 +29,6 @@ jobs:
 
       - name: Run gatekeeper
         run: cosheaf gate run
+
+      - name: Run PR checklist gate
+        run: cosheaf gate run --pr-checklist .github/pull_request_template.md

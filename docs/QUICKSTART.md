@@ -19,7 +19,13 @@ cosheaf validate
 cosheaf gate run
 ```
 
-5. For a task-specific agent run, create or choose an issue and build a context pack:
+5. When preparing a PR, run the local PR checklist gate:
+
+```bash
+cosheaf gate run --pr-checklist .github/pull_request_template.md
+```
+
+6. For a task-specific agent run, create or choose an issue and build a context pack:
 
 ```bash
 cosheaf context build <issue-id>

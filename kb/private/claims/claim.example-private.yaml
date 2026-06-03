@@ -1,6 +1,6 @@
-id: claim.private-graph-note
+id: claim.example-private
 type: claim
-title: Private graph note
+title: Example private draft
 domain:
 - graph-theory
 status: draft
@@ -14,7 +14,7 @@ supersedes: []
 tags:
 - private
 - example
-statement: This private draft note depends on the public graph definition seed.
+statement: This private draft example depends on the public graph definition seed.
 evidence:
 - kind: external
   path: external:workspace-template-example
@@ -24,4 +24,4 @@ review:
   notes: Example private draft artifact for workspace onboarding.
 risk:
   level: low
-  notes: Draft-only template example.
+  notes: Draft-only template example; no novelty is claimed.
