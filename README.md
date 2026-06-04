@@ -42,3 +42,8 @@ The seed files are draft examples only. Replace or mount `kb/public/` from `tcs-
 - Public accepted artifacts require structured source metadata.
 - Do not create accepted private claims without explicit review and gates.
 - Do not import papers or private notes into this template.
+
+## License
+
+This workspace template is released under the Apache-2.0 license. See
+`LICENSE`.

@@ -19,7 +19,7 @@ jobs:
           python-version: "3.11"
 
       - name: Install TCS-Cosheaf
-        run: python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@main"
+        run: python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.1.0"
 
       - name: Inspect workspace
         run: cosheaf workspace info
