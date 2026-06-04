@@ -1,0 +1,28 @@
+id: claim.example-private
+type: claim
+title: Example private draft
+domain:
+- graph-theory
+status: draft
+created_at: 2026-06-03T00:00:00Z
+updated_at: 2026-06-03T00:00:00Z
+authors:
+- workspace-user
+depends_on:
+- definition.graph
+supersedes: []
+tags:
+- private
+- example
+- workspace-demo
+statement: This private draft example depends on the public graph definition seed and does not claim novelty.
+evidence:
+- kind: external
+  path: external:workspace-template-example
+  summary: Template-only private draft example; not an accepted research claim.
+review:
+  state: requested
+  notes: Example private draft artifact for workspace onboarding and context-pack demonstration.
+risk:
+  level: low
+  notes: Draft-only template example; no novelty or accepted knowledge is claimed.

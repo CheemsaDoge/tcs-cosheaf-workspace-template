@@ -1,0 +1,29 @@
+name: Private artifact
+description: Propose or revise a private workspace artifact.
+title: "[private] "
+labels:
+  - private-kb
+body:
+  - type: textarea
+    id: artifact
+    attributes:
+      label: Artifact
+      description: Identify the private artifact and intended status.
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: List public and private dependencies.
+    validations:
+      required: false
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Constraints
+      options:
+        - label: This is not being placed in the public KB.
+          required: true
+        - label: This will not be marked accepted without review and gates.
+          required: true
