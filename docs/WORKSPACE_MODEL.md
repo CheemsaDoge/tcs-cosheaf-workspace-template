@@ -22,6 +22,34 @@ Private artifacts may depend on public artifacts. Public artifacts must not
 depend on private artifacts. Accepted artifacts must not depend on draft
 artifacts. Public accepted artifacts require structured source metadata.
 
+## Demo Flow
+
+The template includes a small end-to-end draft-only demo:
+
+- `kb/public/definitions/definition.graph.yaml` is a public seed definition.
+- `kb/private/claims/claim.example-private.yaml` is a private draft claim.
+- `issues/open/issue.example-private-claim.yaml` describes the task and links
+  both artifacts for context-pack generation.
+
+The demo exercises the intended direction:
+
+```text
+private draft claim -> public graph definition seed
+```
+
+Run the flow with:
+
+```bash
+cosheaf workspace info
+cosheaf validate
+cosheaf gate run
+cosheaf gate run --pr-checklist .github/pull_request_template.md
+cosheaf context build issue.example-private-claim
+```
+
+The demo does not create accepted artifacts, does not claim novelty, and does
+not require SAT, SMT, Lean, or imported papers.
+
 ## Promotion
 
 Private work may be promoted only when the user explicitly chooses to do so and
