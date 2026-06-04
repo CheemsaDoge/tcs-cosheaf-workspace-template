@@ -1,7 +1,11 @@
 # Quickstart
 
-1. Install or make the `cosheaf` CLI available. For local testing, install the
-   framework package from the framework repository or from GitHub `main`.
+1. Install or make the `cosheaf` CLI available. For release-aligned local
+   testing, install the framework package from the `v0.1.0` tag:
+
+```bash
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.1.0"
+```
 
 2. Inspect the configured workspace and confirm it has a readonly public root
    and writable private root:
