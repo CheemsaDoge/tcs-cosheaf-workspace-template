@@ -39,3 +39,12 @@ P1 testing hardening may start only after:
 - Workspace template CI installs `tcs-cosheaf` from `@v0.1.0`, not `@main`.
 - Related P0 release-followup PRs are merged and CI passes.
 - No stale P0 issue remains open.
+
+## P1 Workspace Demo Hardening
+
+- [x] Workspace template CI still installs `tcs-cosheaf` from immutable
+  `@v0.1.0`.
+- [x] Workspace template CI runs workspace info, validation, gatekeeper, PR
+  checklist gate, example issue context build, and whitespace checks.
+- [x] The clean-clone demo remains a private draft claim depending on the
+  public seed definition; no demo artifact is promoted or expanded.

@@ -12,6 +12,8 @@
 - [ ] `cosheaf validate`
 - [ ] `cosheaf gate run`
 - [ ] `cosheaf gate run --pr-checklist .github/pull_request_template.md`
+- [ ] `cosheaf context build issue.example-private-claim`
+- [ ] `git diff --check`
 
 ## Risks
 
