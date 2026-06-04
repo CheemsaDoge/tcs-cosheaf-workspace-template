@@ -32,3 +32,9 @@ jobs:
 
       - name: Run PR checklist gate
         run: cosheaf gate run --pr-checklist .github/pull_request_template.md
+
+      - name: Build example issue context
+        run: cosheaf context build issue.example-private-claim
+
+      - name: Check whitespace
+        run: git diff --check
