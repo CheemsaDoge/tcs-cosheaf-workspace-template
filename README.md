@@ -12,6 +12,13 @@ Users should not manually merge framework and KB repositories. Install or use
 the framework package, mount or replace `kb/public` from `tcs-kb-public`, and
 keep private work under `kb/private`.
 
+With `tcs-cosheaf` `v0.1.1`, context packs can show formal-link metadata from
+public KB artifacts or from this template's draft public seed. Formal links are
+metadata-only references to external declarations. They do not mean Lean has
+verified the artifact, do not mean the informal statement is automatically
+aligned with the formal declaration, and do not add CSLib, mathlib, lake, or
+Lean dependencies.
+
 ## Layout
 
 - `kb/public/`: readonly public KB root.
@@ -32,7 +39,10 @@ cosheaf gate run --pr-checklist .github/pull_request_template.md
 cosheaf context build <issue-id>
 ```
 
-The seed files are draft examples only. Replace or mount `kb/public/` from `tcs-kb-public` for real work, and keep private research under `kb/private/`.
+The seed files are draft examples only. Replace or mount `kb/public/` from
+`tcs-kb-public` for real work, and keep private research under `kb/private`.
+When the mounted public KB contains formal-link metadata, context packs display
+that metadata as review context only, not as a proof or alignment claim.
 
 ## Policy
 
