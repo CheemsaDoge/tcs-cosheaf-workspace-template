@@ -1,10 +1,10 @@
 # Quickstart
 
 1. Install or make the `cosheaf` CLI available. For release-aligned local
-   testing, install the framework package from the `v0.1.0` tag:
+   testing, install the framework package from the `v0.1.1` tag:
 
 ```bash
-python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.1.0"
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.1.1"
 ```
 
 2. Inspect the configured workspace and confirm it has a readonly public root
@@ -45,3 +45,9 @@ and depends on the public seed `definition.graph`.
 
 Keep private research in `kb/private/`. Replace or mount `kb/public/` from the
 public KB repository for real work.
+
+With `tcs-cosheaf` `v0.1.1`, context packs can display formal-link metadata
+from mounted public KB artifacts or from this template's draft public seed. The
+display is metadata-only: it does not mean Lean has verified the declaration,
+does not mean informal and formal statements are automatically aligned, and does
+not add CSLib, mathlib, lake, or Lean dependencies.

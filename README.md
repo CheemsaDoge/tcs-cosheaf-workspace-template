@@ -12,6 +12,10 @@ Users should not manually merge framework and KB repositories. Install or use
 the framework package, mount or replace `kb/public` from `tcs-kb-public`, and
 keep private work under `kb/private`.
 
+```bash
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.1.1"
+```
+
 With `tcs-cosheaf` `v0.1.1`, context packs can show formal-link metadata from
 public KB artifacts or from this template's draft public seed. Formal links are
 metadata-only references to external declarations. They do not mean Lean has
