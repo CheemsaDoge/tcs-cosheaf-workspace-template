@@ -24,3 +24,27 @@ review:
 risk:
   level: low
   notes: Informal seed definition; not accepted knowledge.
+formalizations:
+- id: cslib.graph-definition
+  system: lean4
+  library: CSLib
+  library_ref: cslib-main
+  import_path: CSLib.Graph.Basic
+  symbol: CSLib.Graph.Basic.graph
+  declaration_kind: definition
+  status: planned
+  check_mode: external_library_ref
+  expected_type: ''
+  notes: Template-only planned CSLib reference; symbol is not checked by this repository.
+alignment:
+  status: requested
+  reviewer: ''
+  reviewed_at: null
+  convention_notes:
+  - Confirm whether any mounted public KB graph convention matches this template seed.
+  limitations: External Lean symbol existence and semantic alignment are not checked by this template.
+verification_policy:
+  level: source_reviewed_with_formal_link
+  require_formal_link: true
+  require_lean_check: false
+  require_alignment_review: false
