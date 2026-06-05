@@ -51,3 +51,20 @@ from mounted public KB artifacts or from this template's draft public seed. The
 display is metadata-only: it does not mean Lean has verified the declaration,
 does not mean informal and formal statements are automatically aligned, and does
 not add CSLib, mathlib, lake, or Lean dependencies.
+
+## Using the public graph-theory foundation pack
+
+For real work, update or mount the latest `tcs-kb-public` as the readonly public
+KB root. The public graph-theory foundation pack provides accepted definitions
+for `definition.vertex`, `definition.edge`, `definition.simple-graph`,
+`definition.path`, and `definition.cycle`.
+
+Context packs that include those public artifacts can show their formal-link
+metadata alongside the selected artifacts. Treat that display as review context:
+the formal links are planned only, planned does not mean checked, Lean has not
+run, CSLib symbol existence is not claimed, and informal/formal alignment is not
+automatically complete.
+
+Do not copy public accepted artifacts into `kb/private`. Keep `kb/private` for
+local drafts and private research, and update or mount `tcs-kb-public` when you
+need the latest public foundation definitions.

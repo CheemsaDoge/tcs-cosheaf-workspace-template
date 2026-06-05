@@ -48,6 +48,20 @@ The seed files are draft examples only. Replace or mount `kb/public/` from
 When the mounted public KB contains formal-link metadata, context packs display
 that metadata as review context only, not as a proof or alignment claim.
 
+## Using the public graph-theory foundation pack
+
+This workspace uses a readonly public KB root plus a writable private KB
+overlay. After updating or mounting the latest `tcs-kb-public`, the public KB
+includes accepted graph-theory foundation definitions for vertices, edges,
+simple graphs, paths, and cycles.
+
+When a context pack selects those public artifacts, it can display their
+formal-link metadata. Those links are planned metadata only: planned does not
+mean checked, Lean has not been run, CSLib symbol existence is not claimed, and
+informal/formal alignment has not been completed automatically. Do not copy the
+public accepted artifacts into `kb/private`; keep private work in the private
+overlay and refresh or mount the public KB instead.
+
 ## Policy
 
 - Private artifacts may depend on public artifacts.
