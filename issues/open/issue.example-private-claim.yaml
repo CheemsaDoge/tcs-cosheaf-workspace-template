@@ -1,6 +1,6 @@
 id: issue.example-private-claim
 type: issue
-title: Explore a private draft claim against the public graph seed
+title: Explore a private draft claim with public graph context
 status: open
 created_at: "2026-06-04T00:00:00Z"
 updated_at: "2026-06-04T00:00:00Z"
@@ -9,12 +9,19 @@ authors:
 severity: low
 description: |
   Demonstrate the basic workspace flow with a private draft claim that depends
-  on the public `definition.graph` seed artifact.
+  on artifact id `definition.graph`.
+
+  In a clean template clone, `definition.graph` is provided by the local draft
+  public seed so the offline demo can validate and build context immediately.
+  For real work, mount or check out `tcs-kb-public` as the readonly public KB
+  so `definition.graph` resolves to reviewed accepted public knowledge instead
+  of the template seed.
 
   Acceptance criteria:
   - Keep `claim.example-private` as `status: draft`.
   - Do not claim novelty or accepted knowledge.
   - Keep the dependency direction private-to-public.
+  - Do not promote the private claim or the template public seed.
   - Run `cosheaf workspace info`.
   - Run `cosheaf validate`.
   - Run `cosheaf gate run`.

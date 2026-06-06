@@ -56,7 +56,12 @@ cosheaf context build issue.example-private-claim
 
 The example issue is `issues/open/issue.example-private-claim.yaml`. It points
 to `kb/private/claims/claim.example-private.yaml`, which remains a draft
-private example depending on the public seed `definition.graph`.
+private example depending on artifact id `definition.graph`.
+
+In a clean clone, that dependency is satisfied by this template's local draft
+public seed so the demo can run offline. For real work, mount or check out
+`tcs-kb-public` as the readonly public KB so `definition.graph` resolves to
+reviewed accepted public knowledge.
 
 ## One-Command Demo
 
@@ -126,7 +131,9 @@ into public KB, and refuse to overwrite existing non-git directories. See
 
 Private conjectures, proof attempts, failures, experiments, notes, and
 work-in-progress claims belong under `kb/private`. Private artifacts may depend
-on public artifacts. Public artifacts must not depend on private artifacts.
+on accepted public artifacts from a mounted public KB. Public artifacts must
+not depend on private artifacts. The included public seed is only for template
+demonstration and is not accepted public knowledge.
 
 Do not copy public accepted artifacts into `kb/private`. Do not place private
 conjectures in `kb/public`. Do not promote private claims to accepted without

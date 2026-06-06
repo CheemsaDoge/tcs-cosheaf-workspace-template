@@ -15,14 +15,14 @@ tags:
 - private
 - example
 - workspace-demo
-statement: This private draft example depends on the public graph definition seed and does not claim novelty.
+statement: This private draft example depends on artifact id `definition.graph`; in a clean template clone that id is supplied by the local demonstration seed, while real work should resolve it from mounted accepted public knowledge in `tcs-kb-public`.
 evidence:
 - kind: external
   path: external:workspace-template-example
-  summary: Template-only private draft example; not an accepted research claim.
+  summary: Template-only private draft example; not an accepted research claim and not promoted knowledge.
 review:
   state: requested
-  notes: Example private draft artifact for workspace onboarding and context-pack demonstration.
+  notes: Example private draft artifact for workspace onboarding and context-pack demonstration; real public dependencies should come from tcs-kb-public.
 risk:
   level: low
-  notes: Draft-only template example; no novelty or accepted knowledge is claimed.
+  notes: Draft-only template example; no novelty, human review, machine check, or accepted knowledge is claimed.
