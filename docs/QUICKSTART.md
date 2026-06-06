@@ -1,5 +1,14 @@
 # Quickstart
 
+Run the full template demo with:
+
+```bash
+bash scripts/demo_workspace.sh
+```
+
+The script runs the same commands below, does not promote artifacts, and keeps
+runtime output under ignored paths such as `.cosheaf/` and `context/TASKS/`.
+
 1. Install or make the `cosheaf` CLI available. For release-aligned local
    testing, install the framework package from the `v0.1.1` tag:
 

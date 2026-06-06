@@ -23,6 +23,25 @@ verified the artifact, do not mean the informal statement is automatically
 aligned with the formal declaration, and do not add CSLib, mathlib, lake, or
 Lean dependencies.
 
+## One-command Demo
+
+Run the workspace demo from a clean clone:
+
+```bash
+bash scripts/demo_workspace.sh
+```
+
+The demo installs `tcs-cosheaf` from the `v0.1.1` tag, inspects the workspace,
+validates the configured public/private KB roots, runs the gatekeeper and PR
+checklist gate, and builds context for `issue.example-private-claim`.
+
+The script does not promote artifacts, does not create accepted private claims,
+and only writes runtime outputs under ignored runtime paths such as `.cosheaf/`
+and `context/TASKS/`. The seed files in this template are examples only, and
+the private claim is a draft. For real work, mount or replace `kb/public/` from
+`tcs-kb-public`, and keep private drafts and research under `kb/private/`.
+Formal links remain metadata only unless a real checker is implemented and run.
+
 ## Layout
 
 - `kb/public/`: readonly public KB root.
