@@ -81,6 +81,8 @@ The seed files are draft examples only. Replace or mount `kb/public/` from
 `tcs-kb-public` for real work, and keep private research under `kb/private`.
 When the mounted public KB contains formal-link metadata, context packs display
 that metadata as review context only, not as a proof or alignment claim.
+See `docs/PUBLIC_KB_SETUP.md` for a safe bootstrap flow that clones
+`tcs-kb-public` into an ignored local checkout without modifying `kb/public`.
 
 ## Using the public graph-theory foundation pack
 
@@ -95,6 +97,19 @@ mean checked, Lean has not been run, CSLib symbol existence is not claimed, and
 informal/formal alignment has not been completed automatically. Do not copy the
 public accepted artifacts into `kb/private`; keep private work in the private
 overlay and refresh or mount the public KB instead.
+
+To clone a local readonly reference checkout without overwriting the template
+seed, run:
+
+```bash
+bash scripts/bootstrap_public_kb.sh
+```
+
+On Windows PowerShell:
+
+```powershell
+.\scripts\bootstrap_public_kb.ps1
+```
 
 ## Policy
 
