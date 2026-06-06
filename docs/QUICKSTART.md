@@ -6,6 +6,12 @@ Run the full template demo with:
 bash scripts/demo_workspace.sh
 ```
 
+If `make` is available, the same demo path is:
+
+```bash
+make demo
+```
+
 The script runs the same commands below, does not promote artifacts, and keeps
 runtime output under ignored paths such as `.cosheaf/` and `context/TASKS/`.
 
@@ -16,11 +22,23 @@ runtime output under ignored paths such as `.cosheaf/` and `context/TASKS/`.
 python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.1.1"
 ```
 
+Makefile shortcut:
+
+```bash
+make install
+```
+
 2. Inspect the configured workspace and confirm it has a readonly public root
    and writable private root:
 
 ```bash
 cosheaf workspace info
+```
+
+Makefile shortcut:
+
+```bash
+make workspace
 ```
 
 3. Validate the loaded public and private KB roots. The template includes a
@@ -30,10 +48,22 @@ cosheaf workspace info
 cosheaf validate
 ```
 
+Makefile shortcut:
+
+```bash
+make validate
+```
+
 4. Run the gatekeeper. Draft examples are not accepted knowledge:
 
 ```bash
 cosheaf gate run
+```
+
+Makefile shortcut:
+
+```bash
+make gate
 ```
 
 5. When preparing a PR, run the local PR checklist gate:
@@ -42,10 +72,22 @@ cosheaf gate run
 cosheaf gate run --pr-checklist .github/pull_request_template.md
 ```
 
+Makefile shortcut:
+
+```bash
+make pr-checklist
+```
+
 6. Build the example issue context pack:
 
 ```bash
 cosheaf context build issue.example-private-claim
+```
+
+Makefile shortcut:
+
+```bash
+make context
 ```
 
 The example issue is `issues/open/issue.example-private-claim.yaml`. It points
