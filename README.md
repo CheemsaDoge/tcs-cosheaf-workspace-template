@@ -1,31 +1,66 @@
 # TCS-Cosheaf Workspace Template
 
-This is a user-facing workspace template for using TCS-Cosheaf with a readonly
-public KB and a writable private KB overlay.
+## What This Is
 
-`tcs-cosheaf` is the framework repository. It provides the CLI, schemas,
-validation, gates, graph tools, and context-pack tooling. `tcs-kb-public` is the
-readonly public reusable KB. `kb/private` is the user's writable research
-overlay for conjectures, proof attempts, failures, and work-in-progress claims.
+This repository is the user-facing workspace template for TCS-Cosheaf. It is
+the recommended starting point for a user workspace that combines the framework
+package, readonly reusable public knowledge, and a writable private research
+overlay.
 
-Users should not manually merge framework and KB repositories. Install or use
-the framework package, mount or replace `kb/public` from `tcs-kb-public`, and
-keep private work under `kb/private`.
+The included seed files are examples only. They let a clean clone run
+validation, gates, and context-pack commands immediately, but real public KB
+content should be mounted or checked out from `tcs-kb-public`.
+
+## What This Is Not
+
+This repository is not the framework implementation, not the public KB
+maintenance repository, and not a place to publish private conjectures. It does
+not provide automatic theorem proving, full Lean/mathlib/CSLib integration, a
+web UI, or multi-user permissions.
+
+Validation and gate success are workflow checks. They are not a substitute for
+human review for accepted public KB artifacts, and they do not make
+LLM-generated or private material accepted knowledge.
+
+## Three-Repo Model
+
+- `tcs-cosheaf` is the framework package. It provides the CLI, schemas,
+  validation, gates, graph tools, and context-pack tooling.
+- `tcs-kb-public` is readonly reusable public knowledge for downstream user
+  workspaces.
+- `tcs-cosheaf-workspace-template` is this user-facing workspace template.
+- `kb/private` is the writable private research overlay for conjectures, proof
+  attempts, failures, notes, and work-in-progress claims.
+
+Users should not manually merge framework, public KB, and private workspace
+repositories. Use the framework package, mount or check out public KB content
+from `tcs-kb-public`, and keep private work under `kb/private`.
+
+## Quickstart
+
+Install the framework package pinned by this template:
 
 ```bash
 python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.1.1"
 ```
 
-With `tcs-cosheaf` `v0.1.1`, context packs can show formal-link metadata from
-public KB artifacts or from this template's draft public seed. Formal links are
-metadata-only references to external declarations. They do not mean Lean has
-verified the artifact, do not mean the informal statement is automatically
-aligned with the formal declaration, and do not add CSLib, mathlib, lake, or
-Lean dependencies.
+Then inspect and validate the workspace:
 
-## One-command Demo
+```bash
+cosheaf workspace info
+cosheaf validate
+cosheaf gate run
+cosheaf gate run --pr-checklist .github/pull_request_template.md
+cosheaf context build issue.example-private-claim
+```
 
-Run the workspace demo from a clean clone:
+The example issue is `issues/open/issue.example-private-claim.yaml`. It points
+to `kb/private/claims/claim.example-private.yaml`, which remains a draft
+private example depending on the public seed `definition.graph`.
+
+## One-Command Demo
+
+Run the full demo from a clean clone:
 
 ```bash
 bash scripts/demo_workspace.sh
@@ -35,24 +70,14 @@ The demo installs `tcs-cosheaf` from the `v0.1.1` tag, inspects the workspace,
 validates the configured public/private KB roots, runs the gatekeeper and PR
 checklist gate, and builds context for `issue.example-private-claim`.
 
-The script does not promote artifacts, does not create accepted private claims,
-and only writes runtime outputs under ignored runtime paths such as `.cosheaf/`
-and `context/TASKS/`. The seed files in this template are examples only, and
-the private claim is a draft. For real work, mount or replace `kb/public/` from
-`tcs-kb-public`, and keep private drafts and research under `kb/private/`.
-Formal links remain metadata only unless a real checker is implemented and run.
+The demo does not promote artifacts and does not create accepted private
+claims. Runtime outputs are written under ignored paths such as `.cosheaf/` and
+`context/TASKS/`.
 
-## Layout
+## Makefile Shortcuts
 
-- `kb/public/`: readonly public KB root.
-- `kb/private/`: writable private KB root.
-- `issues/`: local issue drafts when GitHub issues are unavailable.
-- `context/`: durable project context and context-pack outputs.
-- `reviews/`: human, AI, and gatekeeper review records.
-- `experiments/evaluators/`: optional local evaluator scripts.
-- `docs/`: workspace guidance.
-
-## Typical Commands
+If `make` is available, these targets are thin wrappers around the same
+commands:
 
 ```bash
 make install
@@ -64,42 +89,15 @@ make context
 make demo
 ```
 
-The Makefile targets are thin wrappers around the same commands shown below.
-Only `make install` performs the framework package install. `make demo` delegates
-to `scripts/demo_workspace.sh`, which also installs the framework as part of the
-full demo path.
+Only `make install` performs the framework package install directly.
+`make demo` delegates to `scripts/demo_workspace.sh`, which performs the
+install as part of the full demo path.
 
-```bash
-cosheaf workspace info
-cosheaf validate
-cosheaf gate run
-cosheaf gate run --pr-checklist .github/pull_request_template.md
-cosheaf context build <issue-id>
-```
+## Public KB Setup
 
-The seed files are draft examples only. Replace or mount `kb/public/` from
-`tcs-kb-public` for real work, and keep private research under `kb/private`.
-When the mounted public KB contains formal-link metadata, context packs display
-that metadata as review context only, not as a proof or alignment claim.
-See `docs/PUBLIC_KB_SETUP.md` for a safe bootstrap flow that clones
-`tcs-kb-public` into an ignored local checkout without modifying `kb/public`.
-
-## Using the public graph-theory foundation pack
-
-This workspace uses a readonly public KB root plus a writable private KB
-overlay. After updating or mounting the latest `tcs-kb-public`, the public KB
-includes accepted graph-theory foundation definitions for vertices, edges,
-simple graphs, paths, and cycles.
-
-When a context pack selects those public artifacts, it can display their
-formal-link metadata. Those links are planned metadata only: planned does not
-mean checked, Lean has not been run, CSLib symbol existence is not claimed, and
-informal/formal alignment has not been completed automatically. Do not copy the
-public accepted artifacts into `kb/private`; keep private work in the private
-overlay and refresh or mount the public KB instead.
-
-To clone a local readonly reference checkout without overwriting the template
-seed, run:
+For real work, mount or replace `kb/public` with content from `tcs-kb-public`,
+or use the bootstrap script to clone a readonly reference checkout under the
+ignored `.cosheaf/` runtime area:
 
 ```bash
 bash scripts/bootstrap_public_kb.sh
@@ -111,14 +109,41 @@ On Windows PowerShell:
 .\scripts\bootstrap_public_kb.ps1
 ```
 
-## Policy
+The bootstrap scripts do not modify `kb/public`, do not copy private artifacts
+into public KB, and refuse to overwrite existing non-git directories. See
+`docs/PUBLIC_KB_SETUP.md` for the supported modes.
 
-- Private artifacts may depend on public artifacts.
-- Public artifacts must not depend on private artifacts.
-- Accepted artifacts require review and gates.
-- Public accepted artifacts require structured source metadata.
-- Do not create accepted private claims without explicit review and gates.
-- Do not import papers or private notes into this template.
+## Private Research Workflow
+
+Private conjectures, proof attempts, failures, experiments, notes, and
+work-in-progress claims belong under `kb/private`. Private artifacts may depend
+on public artifacts. Public artifacts must not depend on private artifacts.
+
+Do not copy public accepted artifacts into `kb/private`. Do not place private
+conjectures in `kb/public`. Do not promote private claims to accepted without
+explicit review and gates.
+
+## Formal-Link Warning
+
+Formal links are metadata only unless a real checker verifies them. Planned
+formal links do not mean Lean has checked anything, do not mean CSLib/mathlib
+symbols exist, and do not prove informal/formal semantic alignment.
+
+Context packs may display formal-link metadata from mounted public KB artifacts
+or from this template's seed examples as review context. That display is not a
+proof and is not a Lean, SAT, SMT, CSLib, or mathlib verification claim.
+
+## Known Limitations
+
+- The template seed is for demonstration only and is not the real public KB.
+- Public accepted artifacts still require source metadata and human review in
+  `tcs-kb-public`.
+- The demo requires network access for the framework install step.
+- Formal links remain metadata unless a checker actually runs and records a
+  result.
+- The workspace template is the user entry point; framework changes belong in
+  `tcs-cosheaf`, and reusable public knowledge changes belong in
+  `tcs-kb-public`.
 
 ## License
 

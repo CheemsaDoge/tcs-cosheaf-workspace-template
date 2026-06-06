@@ -4,6 +4,10 @@ This workspace has a readonly public KB root and a writable private KB root.
 The public KB is shared/common knowledge. Private claims, experiments, notes,
 and conjectures belong under `kb/private`.
 
+This repository is the user-facing workspace template. `tcs-cosheaf` is the
+framework package, and `tcs-kb-public` is the source of reusable public
+knowledge for real work.
+
 Do not manually merge the framework repository, the public KB repository, and
 private workspace files into one mixed tree.
 
@@ -16,7 +20,8 @@ private workspace files into one mixed tree.
 2. Clone, mount, or replace `kb/public` from `tcs-kb-public` for real work.
    Treat the public KB as readonly from this workspace. Public accepted
    artifacts should come from reviewed `tcs-kb-public` PRs, not from local
-   private edits.
+   private edits. Validation and gate success are not a substitute for human
+   review for accepted public KB artifacts.
 
 3. Advanced users may edit `cosheaf.toml` to point at their own public and
    private roots. Keep the direction clear: private work may depend on public
@@ -68,7 +73,8 @@ For a real workspace root, use one explicit approach:
   KB root points to that location.
 
 Do not copy public accepted artifacts into `kb/private`. Do not place private
-conjectures or draft claims into `kb/public`.
+conjectures, proof attempts, or draft claims into `kb/public`. Do not promote
+private claims to accepted without explicit review and gates.
 
 ## Formal Links
 
