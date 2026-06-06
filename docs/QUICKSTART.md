@@ -128,8 +128,13 @@ make context
 
 The example issue is `issues/open/issue.example-private-claim.yaml`. It points
 to `kb/private/claims/claim.example-private.yaml`, which stays `status: draft`
-and depends on the public seed `definition.graph`. Do not promote private
-claims to accepted without explicit review and gates.
+and depends on artifact id `definition.graph`.
+
+In a clean clone, `definition.graph` is provided by the template's local draft
+public seed so the demo can run immediately. For real work, mount or check out
+`tcs-kb-public` as the readonly public KB so `definition.graph` resolves to
+reviewed accepted public knowledge. Do not promote private claims to accepted
+without explicit review and gates.
 
 Keep private research in `kb/private/`. Replace or mount `kb/public/` from the
 public KB repository for real work. Do not manually merge the framework,
