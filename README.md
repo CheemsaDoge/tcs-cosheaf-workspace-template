@@ -55,6 +55,21 @@ Formal links remain metadata only unless a real checker is implemented and run.
 ## Typical Commands
 
 ```bash
+make install
+make workspace
+make validate
+make gate
+make pr-checklist
+make context
+make demo
+```
+
+The Makefile targets are thin wrappers around the same commands shown below.
+Only `make install` performs the framework package install. `make demo` delegates
+to `scripts/demo_workspace.sh`, which also installs the framework as part of the
+full demo path.
+
+```bash
 cosheaf workspace info
 cosheaf validate
 cosheaf gate run
