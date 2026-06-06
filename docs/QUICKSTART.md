@@ -95,7 +95,8 @@ to `kb/private/claims/claim.example-private.yaml`, which stays `status: draft`
 and depends on the public seed `definition.graph`.
 
 Keep private research in `kb/private/`. Replace or mount `kb/public/` from the
-public KB repository for real work.
+public KB repository for real work. Do not manually merge the framework,
+public KB, and private workspace repositories into one mixed tree.
 
 With `tcs-cosheaf` `v0.1.1`, context packs can display formal-link metadata
 from mounted public KB artifacts or from this template's draft public seed. The
@@ -119,3 +120,19 @@ automatically complete.
 Do not copy public accepted artifacts into `kb/private`. Keep `kb/private` for
 local drafts and private research, and update or mount `tcs-kb-public` when you
 need the latest public foundation definitions.
+
+To clone a local reference checkout of `tcs-kb-public` without modifying this
+template's demonstration `kb/public` seed:
+
+```bash
+bash scripts/bootstrap_public_kb.sh
+```
+
+On Windows PowerShell:
+
+```powershell
+.\scripts\bootstrap_public_kb.ps1
+```
+
+The checkout is created under `.cosheaf/public-kb/tcs-kb-public`, which is an
+ignored runtime location. For details, see `docs/PUBLIC_KB_SETUP.md`.
