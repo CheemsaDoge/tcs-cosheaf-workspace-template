@@ -1,5 +1,15 @@
 # Quickstart
 
+This quickstart starts from `tcs-cosheaf-workspace-template`, the user-facing
+workspace template. `tcs-cosheaf` is the framework package, `tcs-kb-public` is
+readonly reusable public knowledge, and `kb/private` is the writable private
+research overlay.
+
+The included seed files are examples only. Real public KB content should be
+mounted or checked out from `tcs-kb-public`, and users should not manually
+merge framework, public KB, and private workspace repositories into one mixed
+tree.
+
 Run the full template demo with:
 
 ```bash
@@ -92,7 +102,8 @@ make context
 
 The example issue is `issues/open/issue.example-private-claim.yaml`. It points
 to `kb/private/claims/claim.example-private.yaml`, which stays `status: draft`
-and depends on the public seed `definition.graph`.
+and depends on the public seed `definition.graph`. Do not promote private
+claims to accepted without explicit review and gates.
 
 Keep private research in `kb/private/`. Replace or mount `kb/public/` from the
 public KB repository for real work. Do not manually merge the framework,
@@ -103,6 +114,9 @@ from mounted public KB artifacts or from this template's draft public seed. The
 display is metadata-only: it does not mean Lean has verified the declaration,
 does not mean informal and formal statements are automatically aligned, and does
 not add CSLib, mathlib, lake, or Lean dependencies.
+
+Validation and gate success are required workflow checks, but they are not a
+substitute for human review for accepted public KB artifacts.
 
 ## Using the public graph-theory foundation pack
 
