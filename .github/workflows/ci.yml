@@ -19,22 +19,28 @@ jobs:
           python-version: "3.11"
 
       - name: Install TCS-Cosheaf
-        run: python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.1.1"
+        run: make install
+
+      - name: Inspect framework version
+        run: cosheaf version
 
       - name: Inspect workspace
-        run: cosheaf workspace info
+        run: make workspace-info
 
       - name: Validate workspace
-        run: cosheaf validate
+        run: make validate
 
       - name: Run gatekeeper
-        run: cosheaf gate run
+        run: make gate
+
+      - name: Rebuild workspace index
+        run: make index
 
       - name: Run PR checklist gate
-        run: cosheaf gate run --pr-checklist .github/pull_request_template.md
+        run: make pr-checklist
 
       - name: Build example issue context
-        run: cosheaf context build issue.example-private-claim
+        run: make context
 
       - name: Check whitespace
         run: git diff --check
