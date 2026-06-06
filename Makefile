@@ -1,4 +1,4 @@
-.PHONY: install workspace validate gate pr-checklist context demo
+.PHONY: install workspace-info workspace validate gate index pr-checklist context demo
 
 PYTHON ?= python
 COSHEAF ?= cosheaf
@@ -7,14 +7,19 @@ BASH ?= bash
 install:
 	$(PYTHON) -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.1.1"
 
-workspace:
+workspace-info:
 	$(COSHEAF) workspace info
+
+workspace: workspace-info
 
 validate:
 	$(COSHEAF) validate
 
 gate:
 	$(COSHEAF) gate run
+
+index:
+	$(COSHEAF) index rebuild
 
 pr-checklist:
 	$(COSHEAF) gate run --pr-checklist .github/pull_request_template.md

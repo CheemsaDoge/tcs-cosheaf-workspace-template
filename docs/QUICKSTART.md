@@ -22,6 +22,14 @@ If `make` is available, the same demo path is:
 make demo
 ```
 
+On Windows environments where `make` or `bash` is not on `PATH`, use an
+available Make implementation and pass the Bash executable explicitly, for
+example:
+
+```powershell
+mingw32-make demo BASH="C:/Program Files/Git/bin/bash.exe"
+```
+
 The script runs the same commands below, does not promote artifacts, and keeps
 runtime output under ignored paths such as `.cosheaf/` and `context/TASKS/`.
 
@@ -48,8 +56,11 @@ cosheaf workspace info
 Makefile shortcut:
 
 ```bash
-make workspace
+make workspace-info
 ```
+
+`make workspace` remains available as a compatibility alias for
+`make workspace-info`.
 
 3. Validate the loaded public and private KB roots. The template includes a
    tiny public graph definition seed and a private draft claim example:
@@ -76,7 +87,22 @@ Makefile shortcut:
 make gate
 ```
 
-5. When preparing a PR, run the local PR checklist gate:
+5. Rebuild the deterministic local index when you want query/index sidecars:
+
+```bash
+cosheaf index rebuild
+```
+
+Makefile shortcut:
+
+```bash
+make index
+```
+
+The index is generated under ignored runtime paths such as `.cosheaf/`; it is
+not a source of accepted knowledge.
+
+6. When preparing a PR, run the local PR checklist gate:
 
 ```bash
 cosheaf gate run --pr-checklist .github/pull_request_template.md
@@ -88,7 +114,7 @@ Makefile shortcut:
 make pr-checklist
 ```
 
-6. Build the example issue context pack:
+7. Build the example issue context pack:
 
 ```bash
 cosheaf context build issue.example-private-claim

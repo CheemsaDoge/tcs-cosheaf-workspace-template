@@ -81,9 +81,10 @@ commands:
 
 ```bash
 make install
-make workspace
+make workspace-info
 make validate
 make gate
+make index
 make pr-checklist
 make context
 make demo
@@ -92,6 +93,14 @@ make demo
 Only `make install` performs the framework package install directly.
 `make demo` delegates to `scripts/demo_workspace.sh`, which performs the
 install as part of the full demo path.
+`make workspace` remains available as a compatibility alias for
+`make workspace-info`.
+On Windows, if `bash` is installed but not on `PATH`, run the demo with an
+explicit Bash path, for example:
+
+```powershell
+mingw32-make demo BASH="C:/Program Files/Git/bin/bash.exe"
+```
 
 ## Public KB Setup
 
