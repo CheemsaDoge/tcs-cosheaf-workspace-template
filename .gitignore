@@ -1,3 +1,4 @@
 .cosheaf/
+context/TASKS/
 __pycache__/
 *.pyc
