@@ -62,6 +62,13 @@ bash scripts/bootstrap_public_kb.sh .cosheaf/public-kb/tcs-kb-public --update
 The bootstrap scripts never copy private artifacts into the public KB and never
 overwrite an existing non-git directory.
 
+If Git is missing or the network clone/update fails, the scripts print manual
+setup steps instead of silently falling back. The manual process is still:
+clone `tcs-kb-public` yourself, keep that checkout readonly from this
+workspace, do not copy private artifacts into it, and update `cosheaf.toml`
+only when you intentionally want the workspace public KB root to point at that
+checkout.
+
 ## Use The Checkout
 
 For inspection, open the cloned public KB directly under `.cosheaf/public-kb/`.

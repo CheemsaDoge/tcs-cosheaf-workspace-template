@@ -23,6 +23,21 @@ Rules:
 EOF
 }
 
+manual_setup_instructions() {
+  cat >&2 <<EOF
+
+Manual public KB setup:
+  1. Ensure Git and network access are available, then clone:
+       git clone "$PUBLIC_KB_REPO_URL" "$target_path"
+  2. Keep the checkout readonly from this workspace.
+  3. Do not copy private artifacts into the public KB.
+  4. If you want this workspace to use that checkout directly, edit
+     cosheaf.toml so the public KB root points at the checkout path.
+
+This script did not modify kb/public.
+EOF
+}
+
 case "$TARGET_REL" in
   -h|--help)
     usage
@@ -52,6 +67,12 @@ case "$target_path" in
   *) target_path="$REPO_ROOT/$target_path" ;;
 esac
 
+if ! command -v git >/dev/null 2>&1; then
+  printf 'Git is required to clone or update tcs-kb-public, but git was not found on PATH.\n' >&2
+  manual_setup_instructions
+  exit 1
+fi
+
 if [[ -e "$target_path" ]]; then
   if [[ -d "$target_path/.git" ]]; then
     if [[ "$MODE" != "--update" ]]; then
@@ -72,8 +93,18 @@ EOF
       exit 1
     fi
 
-    git -C "$target_path" fetch --tags origin "$current_branch"
-    git -C "$target_path" merge --ff-only "origin/$current_branch"
+    if ! git -C "$target_path" fetch --tags origin "$current_branch"; then
+      printf 'Failed to fetch public KB updates for: %s\n' "$target_path" >&2
+      manual_setup_instructions
+      exit 1
+    fi
+
+    if ! git -C "$target_path" merge --ff-only "origin/$current_branch"; then
+      printf 'Failed to fast-forward public KB checkout: %s\n' "$target_path" >&2
+      manual_setup_instructions
+      exit 1
+    fi
+
     printf '\nUpdated public KB checkout: %s\n' "$target_path"
     exit 0
   fi
@@ -89,7 +120,11 @@ EOF
 fi
 
 mkdir -p "$(dirname "$target_path")"
-git clone "$PUBLIC_KB_REPO_URL" "$target_path"
+if ! git clone "$PUBLIC_KB_REPO_URL" "$target_path"; then
+  printf 'Failed to clone public KB into: %s\n' "$target_path" >&2
+  manual_setup_instructions
+  exit 1
+fi
 
 cat <<EOF
 
