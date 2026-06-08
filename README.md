@@ -65,7 +65,7 @@ reviewed accepted public knowledge.
 
 ## One-Command Demo
 
-Run the full demo from a clean clone:
+Run the minimal workspace demo from a clean clone:
 
 ```bash
 bash scripts/demo_workspace.sh
@@ -78,6 +78,17 @@ checklist gate, and builds context for `issue.example-private-claim`.
 The demo does not promote artifacts and does not create accepted private
 claims. Runtime outputs are written under ignored paths such as `.cosheaf/` and
 `context/TASKS/`.
+
+For a more complete public showcase that also bootstraps a local
+`tcs-kb-public` reference checkout, rebuilds the index, and attempts the
+optional local dry-run worker when the installed framework supports it, run:
+
+```bash
+bash scripts/demo.sh
+```
+
+See [Showcase demo](docs/SHOWCASE.md) for the step-by-step walkthrough and
+limitations.
 
 ## Makefile Shortcuts
 
