@@ -21,7 +21,9 @@ This is a user workspace template for TCS-Cosheaf. It is not the framework repos
 ## Workflow
 
 - Use issues for nontrivial research tasks.
-- Use branches named `codex/<task-id-or-short-name>`.
+- Use short human-readable branch names. Do not add `codex` or other agent
+  prefixes to issue titles, branch names, or PR titles unless the maintainer
+  explicitly asks for that prefix.
 - Keep each branch focused on one reviewable increment.
 - Use context packs for task-specific agent work when issue context exists.
 - Record durable decisions in repository files; Codex conversations are not project memory.

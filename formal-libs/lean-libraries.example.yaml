@@ -1,0 +1,16 @@
+schema_version: 1
+libraries:
+  - id: cslib-main
+    name: CSLib
+    system: lean4
+    git: https://example.invalid/cslib.git
+    commit: "0123456789abcdef0123456789abcdef01234567"
+    lean_version: lean4-example
+    lake_manifest: lake-manifest.json
+    notes: >
+      Template-only manifest entry for the planned CSLib reference in the
+      public seed artifact. Replace this placeholder with a real repository
+      URL, commit, Lean version, and lake manifest fingerprint before running
+      an external library reference checker. This metadata does not mean CSLib
+      was fetched, built, checked, or semantically aligned with the seed
+      artifact.

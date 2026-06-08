@@ -5,7 +5,7 @@ COSHEAF ?= cosheaf
 BASH ?= bash
 
 install:
-	$(PYTHON) -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.1.1"
+	$(PYTHON) -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.0"
 
 workspace-info:
 	$(COSHEAF) workspace info

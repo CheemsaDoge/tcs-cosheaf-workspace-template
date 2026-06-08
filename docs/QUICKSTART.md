@@ -42,10 +42,10 @@ The script runs the same commands below, does not promote artifacts, and keeps
 runtime output under ignored paths such as `.cosheaf/` and `context/TASKS/`.
 
 1. Install or make the `cosheaf` CLI available. For release-aligned local
-   testing, install the framework package from the `v0.1.1` tag:
+   testing, install the framework package from the `v0.2.0` tag:
 
 ```bash
-python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.1.1"
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.0"
 ```
 
 Makefile shortcut:
@@ -148,11 +148,16 @@ Keep private research in `kb/private/`. Replace or mount `kb/public/` from the
 public KB repository for real work. Do not manually merge the framework,
 public KB, and private workspace repositories into one mixed tree.
 
-With `tcs-cosheaf` `v0.1.1`, context packs can display formal-link metadata
+With `tcs-cosheaf` `v0.2.0`, context packs can display formal-link metadata
 from mounted public KB artifacts or from this template's draft public seed. The
 display is metadata-only: it does not mean Lean has verified the declaration,
 does not mean informal and formal statements are automatically aligned, and does
 not add CSLib, mathlib, lake, or Lean dependencies.
+
+The template includes `formal-libs/lean-libraries.example.yaml` so the draft
+seed's planned `cslib-main` reference resolves during G10 metadata checks. That
+manifest is an example placeholder, not evidence that CSLib was fetched, built,
+or checked.
 
 Validation and gate success are required workflow checks, but they are not a
 substitute for human review for accepted public KB artifacts.

@@ -88,3 +88,8 @@ private claims to accepted without explicit review and gates.
 Formal links in public KB artifacts are metadata unless a real checker actually
 verifies them. Planned links do not mean Lean, CSLib, mathlib, lake, SAT, SMT,
 or any other checker has run, and they do not prove informal/formal alignment.
+
+This template's `formal-libs/lean-libraries.example.yaml` is a placeholder
+manifest for resolving planned seed formal-link metadata during G10 checks. It
+does not replace real public KB source metadata, does not fetch external Lean
+libraries, and is not proof evidence.

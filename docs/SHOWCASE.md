@@ -56,7 +56,7 @@ bash scripts/demo_workspace.sh
 The showcase script runs the same core commands that a user can run manually:
 
 ```bash
-python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.1.1"
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.0"
 bash scripts/bootstrap_public_kb.sh .cosheaf/public-kb/tcs-kb-public
 cosheaf workspace info
 cosheaf validate
@@ -107,6 +107,10 @@ not mean Lean, CSLib, mathlib, SAT, SMT, or any other checker has run. A
 context pack can display formal-link metadata as review context, but that
 display is not proof and does not establish informal/formal semantic
 alignment.
+
+`formal-libs/lean-libraries.example.yaml` is present only so the seed's planned
+`cslib-main` reference has a local manifest record for G10 metadata checks. It
+is not a CSLib checkout, not a Lean run, and not formal verification evidence.
 
 ## What This Demo Is Not
 
