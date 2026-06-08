@@ -41,7 +41,7 @@ from `tcs-kb-public`, and keep private work under `kb/private`.
 Install the framework package pinned by this template:
 
 ```bash
-python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.1.1"
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.0"
 ```
 
 Then inspect and validate the workspace:
@@ -71,7 +71,7 @@ Run the minimal workspace demo from a clean clone:
 bash scripts/demo_workspace.sh
 ```
 
-The demo installs `tcs-cosheaf` from the `v0.1.1` tag, inspects the workspace,
+The demo installs `tcs-cosheaf` from the `v0.2.0` tag, inspects the workspace,
 validates the configured public/private KB roots, runs the gatekeeper and PR
 checklist gate, and builds context for `issue.example-private-claim`.
 
@@ -155,6 +155,11 @@ explicit review and gates.
 Formal links are metadata only unless a real checker verifies them. Planned
 formal links do not mean Lean has checked anything, do not mean CSLib/mathlib
 symbols exist, and do not prove informal/formal semantic alignment.
+
+The template includes `formal-libs/lean-libraries.example.yaml` so the draft
+seed's planned `cslib-main` metadata resolves under the G10 formal-link gate.
+That example manifest is placeholder metadata. It does not fetch CSLib, run
+Lean, or turn the seed formal link into checked evidence.
 
 Context packs may display formal-link metadata from mounted public KB artifacts
 or from this template's seed examples as review context. That display is not a
