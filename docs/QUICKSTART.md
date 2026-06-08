@@ -16,6 +16,14 @@ Run the full template demo with:
 bash scripts/demo_workspace.sh
 ```
 
+For the public showcase flow, including public KB bootstrap, index rebuild,
+context build, and optional local dry-run worker when supported by the
+installed framework, run:
+
+```bash
+bash scripts/demo.sh
+```
+
 If `make` is available, the same demo path is:
 
 ```bash
