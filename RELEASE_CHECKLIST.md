@@ -3,19 +3,23 @@
 This workspace template follows the TCS-Cosheaf framework release line and
 keeps release-followup changes focused on reproducible workspace setup.
 
-## P0 Exit
+## Current Baseline
 
-- [x] Workspace template CI installs the framework from the immutable `v0.1.1`
-  tag:
-  `python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.1.1"`.
-- [x] Quickstart install guidance uses the framework `v0.1.1` tag instead of
-  tracking `main`.
+- [x] Workspace template CI installs the framework through `make install`,
+  which pins the immutable `v0.2.0` tag:
+  `python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.0"`.
+- [x] Quickstart, README, Makefile, and demo scripts use the framework
+  `v0.2.0` tag instead of tracking `main`.
 - [x] License policy is Apache-2.0 and the repository includes a root `LICENSE`.
 - [x] The private workspace demo is represented by
   `issues/open/issue.example-private-claim.yaml` and
   `kb/private/claims/claim.example-private.yaml`.
-- [x] v0.1.1 formal-link follow-up changes keep the demo scope intact; any
-  existing artifact changes are metadata-only.
+- [x] `cosheaf.toml` keeps the public KB root readonly and the private KB root
+  writable.
+- [x] The demo does not promote artifacts and does not create accepted private
+  knowledge.
+- [x] Formal-link display remains metadata-only and does not claim Lean,
+  CSLib, mathlib, SAT, SMT, or informal/formal alignment verification.
 
 ## Required Checks
 
@@ -30,21 +34,20 @@ cosheaf context build issue.example-private-claim
 git diff --check
 ```
 
-## P1 Entry
+## Next Framework Entry
 
-P1 testing hardening may start only after:
+Before updating this template to a later framework release:
 
-- `CheemsaDoge/tcs-cosheaf` has tag `v0.1.1`.
-- Public KB CI upgrade to `@v0.1.1` is tracked in the separate public KB
-  follow-up PR.
-- Workspace template CI installs `tcs-cosheaf` from `@v0.1.1`, not `@main`.
-- Related P0 release-followup PRs are merged and CI passes.
-- No stale P0 issue remains open.
+- `CheemsaDoge/tcs-cosheaf` has a reviewed immutable release tag.
+- The README, docs, Makefile, demo scripts, and CI all pin the same tag.
+- Public KB compatibility is checked in the separate public KB repository.
+- Related release-followup PRs are merged and CI passes.
+- No stale release issue remains open.
 
-## P1 Workspace Demo Hardening
+## Workspace Demo Hardening
 
 - [x] Workspace template CI still installs `tcs-cosheaf` from immutable
-  `@v0.1.1`.
+  `@v0.2.0`, not `@main`.
 - [x] Workspace template CI runs workspace info, validation, gatekeeper, PR
   checklist gate, example issue context build, and whitespace checks.
 - [x] The clean-clone demo remains a private draft claim depending on the

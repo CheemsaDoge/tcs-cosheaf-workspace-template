@@ -13,10 +13,11 @@ Generated context packs are task-scoped outputs under `context/TASKS/`. Keep
 them focused on the active issue rather than treating chat history as project
 state.
 
-With `tcs-cosheaf` `v0.1.1`, the generated context pack may include compact
-formal-link metadata for relevant artifacts. That display is metadata-only: it
-does not claim Lean verification and does not claim the informal statement has
-been semantically aligned with the formal declaration.
+With the current pinned `tcs-cosheaf` framework release, the generated context
+pack may include compact formal-link metadata for relevant artifacts. That
+display is metadata-only: it does not claim Lean verification and does not
+claim the informal statement has been semantically aligned with the formal
+declaration.
 
 ## Using the public graph-theory foundation pack
 
