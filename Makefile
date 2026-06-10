@@ -1,4 +1,4 @@
-.PHONY: install workspace-info workspace validate gate index pr-checklist context demo
+.PHONY: install workspace-info workspace validate gate index pr-checklist context demo cli-agent-demo
 
 PYTHON ?= python
 COSHEAF ?= cosheaf
@@ -29,3 +29,6 @@ context:
 
 demo:
 	$(BASH) scripts/demo_workspace.sh
+
+cli-agent-demo:
+	$(BASH) scripts/demo_cli_agent.sh

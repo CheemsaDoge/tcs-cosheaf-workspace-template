@@ -1,0 +1,5 @@
+{
+  "task_id": "task.issue.example-private-claim.reasoner",
+  "bundle_path": "examples/cli_agent_demo/worker_bundle.json",
+  "complete_task": false
+}
