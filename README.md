@@ -121,6 +121,33 @@ On Windows, if `bash` is installed but not on `PATH`, run:
 mingw32-make cli-agent-demo BASH="C:/Program Files/Git/bin/bash.exe"
 ```
 
+## Provider Fake Smoke
+
+Run the fake provider smoke when you want to exercise the hosted-worker
+provider path without a real API key or hosted API call:
+
+```bash
+bash scripts/provider_fake_smoke.sh
+```
+
+Or through Make:
+
+```bash
+make provider-fake-smoke
+```
+
+The smoke writes JSON outputs under `.cosheaf/provider-fake-smoke/`, checks the
+fake provider configuration, previews the public-mode provider send shape, and
+runs the orchestrator with `--provider fake`. It does not require MCP, does not
+write accepted knowledge, does not promote artifacts, does not mark human
+review complete, and keeps the public KB readonly.
+
+Provider commands are newer than the `v0.2.0` release tag, so this smoke
+installs `tcs-cosheaf` from `main` by default until the next framework tag
+includes them. Real hosted provider use is explicit user setup only; do not
+commit API keys, `.env` files, provider responses with private context, or
+logs containing secrets. See [Agent Providers](docs/AGENT_PROVIDERS.md).
+
 ## Makefile Shortcuts
 
 If `make` is available, these targets are thin wrappers around the same
@@ -136,11 +163,17 @@ make pr-checklist
 make context
 make demo
 make cli-agent-demo
+make provider-config-check
+make provider-preview-public
+make provider-fake-smoke
 ```
 
 Only `make install` performs the framework package install directly.
 `make demo` delegates to `scripts/demo_workspace.sh`, which performs the
 install as part of the full demo path.
+The provider targets delegate to `scripts/provider_fake_smoke.sh`, use the fake
+provider, and may install the framework source configured by
+`COSHEAF_FRAMEWORK_REF`.
 `make workspace` remains available as a compatibility alias for
 `make workspace-info`.
 On Windows, if `bash` is installed but not on `PATH`, run the demo with an

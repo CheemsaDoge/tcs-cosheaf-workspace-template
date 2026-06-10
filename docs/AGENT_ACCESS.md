@@ -5,6 +5,9 @@ agents. The framework repository defines the authoritative agent-access
 contract; this workspace shows how to exercise that contract without hosted
 API calls, MCP, accepted writes, or private leakage.
 
+For fake hosted-worker provider smoke and safe real-provider setup rules, see
+`docs/AGENT_PROVIDERS.md`.
+
 ## CLI Agent Demo
 
 Run the end-to-end CLI agent demo with:
