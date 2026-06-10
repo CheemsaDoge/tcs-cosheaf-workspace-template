@@ -1,8 +1,12 @@
-.PHONY: install workspace-info workspace validate gate index pr-checklist context demo cli-agent-demo
+.PHONY: install workspace-info workspace validate gate index pr-checklist context demo cli-agent-demo provider-config-check provider-preview-public provider-fake-smoke
 
 PYTHON ?= python
 COSHEAF ?= cosheaf
+ifeq ($(OS),Windows_NT)
+BASH ?= C:/Progra~1/Git/bin/bash.exe
+else
 BASH ?= bash
+endif
 
 install:
 	$(PYTHON) -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.0"
@@ -32,3 +36,12 @@ demo:
 
 cli-agent-demo:
 	$(BASH) scripts/demo_cli_agent.sh
+
+provider-config-check:
+	$(BASH) scripts/provider_fake_smoke.sh config-check
+
+provider-preview-public:
+	$(BASH) scripts/provider_fake_smoke.sh preview-public
+
+provider-fake-smoke:
+	$(BASH) scripts/provider_fake_smoke.sh

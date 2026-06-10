@@ -162,6 +162,39 @@ or checked.
 Validation and gate success are required workflow checks, but they are not a
 substitute for human review for accepted public KB artifacts.
 
+## CLI-agent and provider smoke commands
+
+For the CLI-first agent workflow, run:
+
+```bash
+make cli-agent-demo
+```
+
+That demo writes JSON output under `.cosheaf/cli-agent-demo/`, uses dry-run
+draft and bundle commands, and does not call hosted providers or require MCP.
+See `docs/AGENT_ACCESS.md`.
+
+For the fake provider workflow, run:
+
+```bash
+make provider-config-check
+make provider-preview-public
+make provider-fake-smoke
+```
+
+`provider-config-check` reports fake-provider configuration in JSON.
+`provider-preview-public` previews the public-mode provider context shape for
+`issue.example-private-claim`. `provider-fake-smoke` writes JSON output under
+`.cosheaf/provider-fake-smoke/` and runs the orchestrator with `--provider
+fake`.
+
+The automated provider smoke uses the fake provider only. It does not require
+an API key, does not make hosted API calls, does not require MCP, does not write
+accepted knowledge, does not promote artifacts, and keeps public KB readonly.
+Provider commands are newer than the `v0.2.0` release tag, so the smoke
+installs the framework from `main` by default until the next tag includes them.
+See `docs/AGENT_PROVIDERS.md` for safe real-provider setup rules.
+
 ## Using the public graph-theory foundation pack
 
 For real work, update or mount the latest `tcs-kb-public` as the readonly public
