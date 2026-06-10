@@ -1,0 +1,38 @@
+{
+  "bundle_id": "bundle.issue.example-private-claim.reasoner.0001",
+  "task_id": "task.issue.example-private-claim.reasoner",
+  "worker_role": "reasoner",
+  "created_at": "2026-06-09T00:00:00Z",
+  "summary": "CLI agent demo bundle for review-only dry-run submission.",
+  "used_artifacts": [
+    "definition.graph",
+    "claim.example-private"
+  ],
+  "used_sources": [
+    "examples/cli_agent_demo/draft_artifact_request.json"
+  ],
+  "claims": [
+    "The proposed output remains draft-only and requires review before any promotion."
+  ],
+  "proposed_artifacts": [
+    {
+      "path": "kb/private/draft/claims/claim.cli-agent-demo.yaml",
+      "summary": "Draft-only CLI agent demo claim proposal."
+    }
+  ],
+  "verification_requests": [
+    "Run cosheaf validate and cosheaf gate run after any real write."
+  ],
+  "failures_or_counterexamples": [
+    "No hosted API, MCP, Lean, SAT, SMT, or human review was performed."
+  ],
+  "risk_flags": [
+    "needs_human_review",
+    "dry_run_only"
+  ],
+  "next_steps": [
+    "Inspect the dry-run output before deciding whether to create a real draft.",
+    "Request human review before any promotion workflow."
+  ],
+  "confidence": "low"
+}

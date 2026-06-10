@@ -1,0 +1,21 @@
+{
+  "artifact_id": "claim.cli-agent-demo",
+  "artifact_type": "claim",
+  "title": "CLI agent demo draft claim",
+  "domain": [
+    "graph-theory"
+  ],
+  "status": "draft",
+  "statement": "This draft-only CLI agent demo proposal depends on definition.graph and is never accepted or promoted by the demo.",
+  "authors": [
+    "workspace-user"
+  ],
+  "tags": [
+    "cli-agent-demo",
+    "draft"
+  ],
+  "depends_on": [
+    "definition.graph"
+  ],
+  "supersedes": []
+}

@@ -90,6 +90,37 @@ bash scripts/demo.sh
 See [Showcase demo](docs/SHOWCASE.md) for the step-by-step walkthrough and
 limitations.
 
+## CLI Agent Demo
+
+Run the CLI-first agent demo:
+
+```bash
+bash scripts/demo_cli_agent.sh
+```
+
+This demo uses only Cosheaf CLI commands with JSON output. It inspects the
+workspace, validates and gates, searches memory, builds public-only context,
+previews a draft artifact write with `--dry-run`, previews a worker bundle
+review submission with `--dry-run`, and validates/gates again.
+
+The demo writes parseable JSON outputs under `.cosheaf/cli-agent-demo/`, an
+ignored runtime directory. It does not use hosted API calls, does not require
+MCP, does not write accepted knowledge, does not promote artifacts, and does
+not mark human review complete. Public KB remains readonly.
+
+The controlled draft-write CLI commands are newer than the `v0.2.0` release
+tag, so this demo installs `tcs-cosheaf` from the `main` branch by default
+until the next framework tag includes them. Override the source with
+`COSHEAF_FRAMEWORK_REF=<ref>`, or use a local framework checkout with
+`COSHEAF_SKIP_INSTALL=1`, `PYTHONPATH=../tcs-cosheaf`, and
+`COSHEAF_CMD="python -m cosheaf.cli"`.
+
+On Windows, if `bash` is installed but not on `PATH`, run:
+
+```powershell
+mingw32-make cli-agent-demo BASH="C:/Program Files/Git/bin/bash.exe"
+```
+
 ## Makefile Shortcuts
 
 If `make` is available, these targets are thin wrappers around the same
@@ -104,6 +135,7 @@ make index
 make pr-checklist
 make context
 make demo
+make cli-agent-demo
 ```
 
 Only `make install` performs the framework package install directly.
