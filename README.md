@@ -41,7 +41,7 @@ from `tcs-kb-public`, and keep private work under `kb/private`.
 Install the framework package pinned by this template:
 
 ```bash
-python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.0"
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.1"
 ```
 
 Then inspect and validate the workspace:
@@ -71,7 +71,7 @@ Run the minimal workspace demo from a clean clone:
 bash scripts/demo_workspace.sh
 ```
 
-The demo installs `tcs-cosheaf` from the `v0.2.0` tag, inspects the workspace,
+The demo installs `tcs-cosheaf` from the `v0.2.1` tag, inspects the workspace,
 validates the configured public/private KB roots, runs the gatekeeper and PR
 checklist gate, and builds context for `issue.example-private-claim`.
 
@@ -108,10 +108,9 @@ ignored runtime directory. It does not use hosted API calls, does not require
 MCP, does not write accepted knowledge, does not promote artifacts, and does
 not mark human review complete. Public KB remains readonly.
 
-The controlled draft-write CLI commands are newer than the `v0.2.0` release
-tag, so this demo installs `tcs-cosheaf` from the `main` branch by default
-until the next framework tag includes them. Override the source with
-`COSHEAF_FRAMEWORK_REF=<ref>`, or use a local framework checkout with
+The demo installs `tcs-cosheaf` from the `v0.2.1` tag by default. Override the
+source with `COSHEAF_FRAMEWORK_REF=<ref>`, or use a local framework checkout
+with
 `COSHEAF_SKIP_INSTALL=1`, `PYTHONPATH=../tcs-cosheaf`, and
 `COSHEAF_CMD="python -m cosheaf.cli"`.
 
@@ -142,11 +141,10 @@ runs the orchestrator with `--provider fake`. It does not require MCP, does not
 write accepted knowledge, does not promote artifacts, does not mark human
 review complete, and keeps the public KB readonly.
 
-Provider commands are newer than the `v0.2.0` release tag, so this smoke
-installs `tcs-cosheaf` from `main` by default until the next framework tag
-includes them. Real hosted provider use is explicit user setup only; do not
-commit API keys, `.env` files, provider responses with private context, or
-logs containing secrets. See [Agent Providers](docs/AGENT_PROVIDERS.md).
+The smoke installs `tcs-cosheaf` from the `v0.2.1` tag by default. Real hosted
+provider use is explicit user setup only; do not commit API keys, `.env`
+files, provider responses with private context, or logs containing secrets. See
+[Agent Providers](docs/AGENT_PROVIDERS.md).
 
 ## Makefile Shortcuts
 

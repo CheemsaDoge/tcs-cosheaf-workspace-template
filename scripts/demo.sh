@@ -32,7 +32,7 @@ PY
   fi
 }
 
-run "$PYTHON_BIN" -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.0"
+run "$PYTHON_BIN" -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.1"
 add_python_user_scripts_to_path
 
 PUBLIC_KB_TARGET=".cosheaf/public-kb/tcs-kb-public"
@@ -49,6 +49,19 @@ run cosheaf index rebuild
 run cosheaf context build issue.example-private-claim
 
 if cosheaf orchestrator run --help >/dev/null 2>&1; then
+  run_root=".cosheaf/orchestrator/issue.example-private-claim/runs/run.issue.example-private-claim"
+  if [[ -d "$run_root" ]]; then
+    case "$run_root" in
+      .cosheaf/orchestrator/*)
+        printf '\n# removing previous ignored runtime run: %s\n' "$run_root"
+        rm -rf "$run_root"
+        ;;
+      *)
+        printf 'Refusing to remove unexpected path: %s\n' "$run_root" >&2
+        exit 1
+        ;;
+    esac
+  fi
   run cosheaf orchestrator run --issue issue.example-private-claim --dry-run --local-only
 else
   printf '\n# Optional dry-run worker skipped: installed cosheaf does not expose orchestrator run.\n'

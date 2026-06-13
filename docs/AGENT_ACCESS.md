@@ -21,11 +21,11 @@ outputs under `.cosheaf/cli-agent-demo/`, an ignored runtime directory. It
 does not promote artifacts, does not create accepted private claims, does not
 write human review, does not call hosted providers, and does not require MCP.
 
-Until the controlled draft-write CLI commands are available in a release tag,
-the demo installs the framework from the `main` branch by default:
+The demo installs the framework from the `v0.2.1` tag by default. To test a
+different framework source, set `COSHEAF_FRAMEWORK_REF` explicitly:
 
 ```bash
-COSHEAF_FRAMEWORK_REF=main bash scripts/demo_cli_agent.sh
+COSHEAF_FRAMEWORK_REF=v0.2.1 bash scripts/demo_cli_agent.sh
 ```
 
 For local framework development, skip installation and point the script at a
