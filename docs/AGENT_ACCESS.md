@@ -8,6 +8,12 @@ API calls, MCP, accepted writes, or private leakage.
 For fake hosted-worker provider smoke and safe real-provider setup rules, see
 `docs/AGENT_PROVIDERS.md`.
 
+The default agent demos remain fake-only and local. Real hosted provider use
+requires separate operator setup, secret handling outside the repository,
+public-only preview before send, explicit consent for any private context, and
+manual use of the framework's real-send boundary. This template does not add a
+default real-run Makefile target.
+
 ## CLI Agent Demo
 
 Run the end-to-end CLI agent demo with:

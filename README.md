@@ -146,6 +146,12 @@ provider use is explicit user setup only; do not commit API keys, `.env`
 files, provider responses with private context, or logs containing secrets. See
 [Agent Providers](docs/AGENT_PROVIDERS.md).
 
+`docs/AGENT_PROVIDERS.md` distinguishes fake, mocked, and real provider
+surfaces. Default demos use the fake provider only. Real provider setup starts
+with `provider config-check` and a public-only `provider preview-send`; private
+context requires `private_research` policy plus explicit private-context
+consent.
+
 ## Makefile Shortcuts
 
 If `make` is available, these targets are thin wrappers around the same
