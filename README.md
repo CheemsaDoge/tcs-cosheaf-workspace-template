@@ -152,6 +152,22 @@ with `provider config-check` and a public-only `provider preview-send`; private
 context requires `private_research` policy plus explicit private-context
 consent.
 
+To preview the OpenAI-compatible public context boundary without an API key or
+network send, run:
+
+```bash
+bash scripts/provider_preview_public.sh
+```
+
+or:
+
+```bash
+make provider-preview-public
+```
+
+The preview smoke writes JSON outputs under `.cosheaf/provider-preview-public/`
+and does not perform a hosted provider call.
+
 ## Makefile Shortcuts
 
 If `make` is available, these targets are thin wrappers around the same
@@ -175,9 +191,10 @@ make provider-fake-smoke
 Only `make install` performs the framework package install directly.
 `make demo` delegates to `scripts/demo_workspace.sh`, which performs the
 install as part of the full demo path.
-The provider targets delegate to `scripts/provider_fake_smoke.sh`, use the fake
-provider, and may install the framework source configured by
-`COSHEAF_FRAMEWORK_REF`.
+The fake provider targets use `scripts/provider_fake_smoke.sh`. The public
+provider preview target uses `scripts/provider_preview_public.sh` and previews
+OpenAI-compatible provider metadata without sending a real request. Provider
+targets may install the framework source configured by `COSHEAF_FRAMEWORK_REF`.
 `make workspace` remains available as a compatibility alias for
 `make workspace-info`.
 On Windows, if `bash` is installed but not on `PATH`, run the demo with an

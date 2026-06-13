@@ -41,7 +41,7 @@ provider-config-check:
 	$(BASH) scripts/provider_fake_smoke.sh config-check
 
 provider-preview-public:
-	$(BASH) scripts/provider_fake_smoke.sh preview-public
+	$(BASH) scripts/provider_preview_public.sh
 
 provider-fake-smoke:
 	$(BASH) scripts/provider_fake_smoke.sh

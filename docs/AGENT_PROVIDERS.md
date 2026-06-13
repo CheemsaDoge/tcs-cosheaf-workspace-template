@@ -76,17 +76,47 @@ make provider-config-check
 make provider-preview-public
 ```
 
-These targets use the same framework source selection as the full smoke. Set
-`COSHEAF_FRAMEWORK_REF=<ref>` to choose an install source, or set
+`provider-config-check` uses the local fake provider smoke for a minimal
+secret-free configuration check. `provider-preview-public` runs
+`scripts/provider_preview_public.sh`, which checks OpenAI-compatible provider
+configuration metadata and previews the public-only context boundary without a
+hosted API call.
+
+Both targets use the same framework source selection style as the full smoke.
+Set `COSHEAF_FRAMEWORK_REF=<ref>` to choose an install source, or set
 `COSHEAF_SKIP_INSTALL=1` with `COSHEAF_CMD="python -m cosheaf.cli"` for a local
 framework checkout.
 
 `provider-config-check` reports fake-provider configuration in JSON. It does
 not read or print secrets.
 
-`provider-preview-public` previews the public-mode provider context shape for
-`issue.example-private-claim`. It does not send full artifact text to a hosted
-provider and does not authorize a provider call by itself.
+`provider-preview-public` writes JSON under `.cosheaf/provider-preview-public/`
+for `issue.example-private-claim`. It does not send full artifact text to a
+hosted provider and does not authorize a provider call by itself.
+
+## Public Provider Preview Smoke
+
+Run the public-only preview smoke directly with:
+
+```bash
+bash scripts/provider_preview_public.sh
+```
+
+The script runs:
+
+1. `cosheaf provider config-check --provider openai --api-key-env OPENAI_API_KEY --json`
+2. `cosheaf provider preview-send --issue issue.example-private-claim --provider openai --policy-mode public --json`
+
+The first step reports whether the configured API key environment variable is
+present without printing any secret value. The second step previews the
+provider-send context shape in public mode only. It should report public root
+scope, `private_context_included: false`, card-only content, and
+`real_run_performed: false`.
+
+The script writes outputs under `.cosheaf/provider-preview-public/`, an ignored
+runtime path. It performs no hosted API call, does not require an API key, does
+not require MCP, does not write accepted knowledge, does not promote artifacts,
+and keeps public KB readonly.
 
 ## Real Provider Setup
 
