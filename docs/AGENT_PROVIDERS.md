@@ -49,6 +49,24 @@ On Windows, if `bash` is installed but not on `PATH`, run:
 mingw32-make provider-fake-smoke BASH="C:/Program Files/Git/bin/bash.exe"
 ```
 
+## Provider Modes
+
+Use these names consistently when reading framework docs and workspace output:
+
+- Fake provider: deterministic local provider used by this template's
+  automated smoke. It requires no API key, performs no hosted API call, and is
+  the only provider used by default demos.
+- Mocked provider: test-only framework fixture that injects a fake transport to
+  exercise OpenAI-compatible provider boundaries. It is useful for framework
+  tests, but it is not a user configuration mode in this workspace.
+- Real provider: an explicitly configured hosted provider call. It requires
+  local operator setup, API credentials outside the repository, public/private
+  context preview, send consent, and network permission. Real provider output
+  is untrusted review context only.
+
+Default workspace demos remain fake-only. Do not add a Makefile target or demo
+script that performs a real provider call by default.
+
 ## Single-Step Commands
 
 Use these targets when an agent or operator wants one provider check at a time:
@@ -86,3 +104,70 @@ user enables a real provider later, it must be explicit and local to that user:
 
 Real provider output is not human review, not validation/gate success, not a
 verifier pass, and not accepted knowledge.
+
+### Environment Variable Names
+
+`.env.example` lists variable names only. Leave real provider values empty in
+the repository. Put local values in your shell, a local secret manager, or an
+untracked local environment file.
+
+Current OpenAI-compatible variable names used by examples and operator notes:
+
+- `OPENAI_API_KEY`: secret API key. Never commit a value.
+- `OPENAI_BASE_URL`: optional OpenAI-compatible endpoint URL. Leave empty in
+  repository files.
+- `OPENAI_MODEL`: optional model name. Leave empty in repository files unless
+  a future private local setup file supplies it.
+
+Run a configuration check before any send:
+
+```bash
+cosheaf provider config-check --provider openai --api-key-env OPENAI_API_KEY --json
+```
+
+The config check reports secret presence only and must not print the key.
+
+### Preview Before Send
+
+Always preview public context first:
+
+```bash
+cosheaf provider preview-send \
+  --issue issue.example-private-claim \
+  --provider openai \
+  --json
+```
+
+Public preview output should show public root scope only and
+`private_context_included: false`. Preview output is metadata for operator
+review; it does not authorize a hosted provider call by itself.
+
+Private context requires an explicit private-research preview and explicit
+private-context consent:
+
+```bash
+cosheaf provider preview-send \
+  --issue issue.example-private-claim \
+  --provider openai \
+  --include-private \
+  --policy-mode private_research \
+  --allow-private-context \
+  --json
+```
+
+Do not use private context unless the local research workflow really requires
+it and the operator has inspected the preview. Private provider responses and
+logs may contain sensitive research content; keep them under ignored runtime
+paths and do not commit them.
+
+### Real Send Boundary
+
+The workspace template does not provide a default real-run Makefile target.
+The framework real-send path is deliberately hard to trigger: it requires an
+explicit input envelope, configured endpoint/key environment, context preview,
+`--confirm-send`, and `--allow-network`. Private context additionally requires
+private-research policy and explicit private-context consent.
+
+Real sends are outside the default demo path. They must not write accepted
+knowledge, mark human review, create verifier results, promote artifacts, or
+bypass validation and gates.
