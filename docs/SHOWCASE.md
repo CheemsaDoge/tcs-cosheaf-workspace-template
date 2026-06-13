@@ -56,7 +56,7 @@ bash scripts/demo_workspace.sh
 The showcase script runs the same core commands that a user can run manually:
 
 ```bash
-python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.0"
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.1"
 bash scripts/bootstrap_public_kb.sh .cosheaf/public-kb/tcs-kb-public
 cosheaf workspace info
 cosheaf validate

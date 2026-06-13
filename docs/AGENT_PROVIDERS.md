@@ -31,11 +31,10 @@ does not require an API key, does not require MCP, does not write accepted
 knowledge, does not promote artifacts, and does not mark human review complete.
 The public KB remains readonly.
 
-The provider and hosted-worker orchestrator commands are newer than the
-`v0.2.0` release tag, so the smoke installs `tcs-cosheaf` from the `main`
-branch by default until the next framework tag includes them. Override the
-source with `COSHEAF_FRAMEWORK_REF=<ref>`, or use a local framework checkout
-with:
+The provider and hosted-worker orchestrator commands are included in the
+`v0.2.1` framework tag, so the smoke installs `tcs-cosheaf` from `v0.2.1` by
+default. Override the source with `COSHEAF_FRAMEWORK_REF=<ref>`, or use a local
+framework checkout with:
 
 ```bash
 COSHEAF_SKIP_INSTALL=1 \
