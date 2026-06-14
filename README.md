@@ -120,6 +120,43 @@ On Windows, if `bash` is installed but not on `PATH`, run:
 mingw32-make cli-agent-demo BASH="C:/Program Files/Git/bin/bash.exe"
 ```
 
+## Failure-Memory Demo
+
+Run the artifact failure-memory demo:
+
+```bash
+make failure-memory-demo
+```
+
+The demo uses the active `cosheaf` CLI; it does not install the framework by
+default. It creates a temporary workspace copy under
+`.cosheaf/failure-memory-demo/`, appends one `failure_log` entry to the copied
+private draft artifact, then records JSON output for failure-log inspection,
+promotion-readiness reporting, validation, and gates.
+
+The promotion-readiness report is expected to say the example is not ready:
+the artifact is still a draft, lacks human review, and depends on template seed
+material.
+
+The source `kb/private` artifact is not modified. The demo does not write
+accepted knowledge, does not promote artifacts, does not call a provider, does
+not require an API key, and does not mark human review complete. Failure memory
+is research context only: it is not proof, refutation, verifier evidence,
+human review, gate success, or promotion evidence.
+
+The demo expects a framework version with artifact failure-log CLI support.
+Until that support is released as a pinned tag, run it against a local
+framework checkout:
+
+```bash
+PYTHONPATH="$(pwd)/../tcs-cosheaf" \
+COSHEAF_CMD="python -m cosheaf.cli" \
+bash scripts/demo_failure_memory.sh
+```
+
+To explicitly install a framework source before running the demo, set
+`COSHEAF_INSTALL_FRAMEWORK=1 COSHEAF_FRAMEWORK_REF=<ref>`.
+
 ## Provider Fake Smoke
 
 Run the fake provider smoke when you want to exercise the hosted-worker
@@ -183,6 +220,7 @@ make pr-checklist
 make context
 make demo
 make cli-agent-demo
+make failure-memory-demo
 make provider-config-check
 make provider-preview-public
 make provider-fake-smoke

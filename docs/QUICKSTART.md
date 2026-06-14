@@ -174,6 +174,36 @@ That demo writes JSON output under `.cosheaf/cli-agent-demo/`, uses dry-run
 draft and bundle commands, and does not call hosted providers or require MCP.
 See `docs/AGENT_ACCESS.md`.
 
+For artifact failure-memory workflow, run:
+
+```bash
+make failure-memory-demo
+```
+
+The demo uses the active `cosheaf` CLI and writes a temporary workspace copy
+and JSON outputs under
+`.cosheaf/failure-memory-demo/`. It appends one failed direction to the copied
+private draft artifact, shows `artifact failures`, reports promotion readiness,
+and reruns validation and gates. The source `kb/private` artifact is not
+modified.
+
+The promotion-readiness report is expected to remain not ready because the
+example artifact is a draft without human review.
+
+Failure memory is research context only. It is not proof, refutation, verifier
+evidence, human review, gate success, accepted status, or promotion evidence.
+Until the failure-log CLI is available from the template's pinned framework
+tag, use a local framework checkout:
+
+```bash
+PYTHONPATH="$(pwd)/../tcs-cosheaf" \
+COSHEAF_CMD="python -m cosheaf.cli" \
+bash scripts/demo_failure_memory.sh
+```
+
+To explicitly install a framework source first, set
+`COSHEAF_INSTALL_FRAMEWORK=1 COSHEAF_FRAMEWORK_REF=<ref>`.
+
 For the fake provider workflow, run:
 
 ```bash
