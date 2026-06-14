@@ -6,10 +6,10 @@ keeps release-followup changes focused on reproducible workspace setup.
 ## Current Baseline
 
 - [x] Workspace template CI installs the framework through `make install`,
-  which pins the immutable `v0.2.1` tag:
-  `python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.1"`.
+  which pins the immutable `v0.2.2` tag:
+  `python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.2"`.
 - [x] Quickstart, README, Makefile, and demo scripts use the framework
-  `v0.2.1` tag instead of tracking `main`.
+  `v0.2.2` tag instead of tracking `main`.
 - [x] License policy is Apache-2.0 and the repository includes a root `LICENSE`.
 - [x] The private workspace demo is represented by
   `issues/open/issue.example-private-claim.yaml` and
@@ -47,7 +47,7 @@ Before updating this template to a later framework release:
 ## Workspace Demo Hardening
 
 - [x] Workspace template CI still installs `tcs-cosheaf` from immutable
-  `@v0.2.1`, not `@main`.
+  `@v0.2.2`, not `@main`.
 - [x] Workspace template CI runs workspace info, validation, gatekeeper, PR
   checklist gate, example issue context build, and whitespace checks.
 - [x] The clean-clone demo remains a private draft claim depending on the
