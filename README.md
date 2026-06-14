@@ -186,6 +186,7 @@ make cli-agent-demo
 make provider-config-check
 make provider-preview-public
 make provider-fake-smoke
+make verifier-evidence-demo
 ```
 
 Only `make install` performs the framework package install directly.
@@ -195,6 +196,9 @@ The fake provider targets use `scripts/provider_fake_smoke.sh`. The public
 provider preview target uses `scripts/provider_preview_public.sh` and previews
 OpenAI-compatible provider metadata without sending a real request. Provider
 targets may install the framework source configured by `COSHEAF_FRAMEWORK_REF`.
+`make verifier-evidence-demo` runs `scripts/demo_verifier_evidence.sh`, which
+shows promotion-readiness and verifier-gate boundaries without API keys,
+hosted providers, MCP, accepted writes, or human-review spoofing.
 `make workspace` remains available as a compatibility alias for
 `make workspace-info`.
 On Windows, if `bash` is installed but not on `PATH`, run the demo with an
@@ -250,6 +254,22 @@ Lean, or turn the seed formal link into checked evidence.
 Context packs may display formal-link metadata from mounted public KB artifacts
 or from this template's seed examples as review context. That display is not a
 proof and is not a Lean, SAT, SMT, CSLib, or mathlib verification claim.
+
+## Verification Workflow Demo
+
+Run:
+
+```bash
+bash scripts/demo_verifier_evidence.sh
+```
+
+The demo records JSON outputs under `.cosheaf/verifier-evidence-demo/`. It
+checks workspace validation and gates, shows that skipped or not-applicable
+verifier gates are not passes, and runs promotion-readiness reporting when the
+installed framework exposes that command. The private example claim is expected
+to remain not promotion-ready because it is draft and lacks human review.
+
+See [Verification Workflow Demo](docs/VERIFICATION_WORKFLOW.md).
 
 ## Known Limitations
 
