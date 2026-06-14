@@ -32,7 +32,7 @@ PY
   fi
 }
 
-run "$PYTHON_BIN" -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.3"
+run "$PYTHON_BIN" -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.4"
 add_python_user_scripts_to_path
 
 PUBLIC_KB_TARGET=".cosheaf/public-kb/tcs-kb-public"
@@ -50,6 +50,7 @@ run cosheaf context build issue.example-private-claim
 
 if cosheaf orchestrator run --help >/dev/null 2>&1; then
   run_root=".cosheaf/orchestrator/issue.example-private-claim/runs/run.issue.example-private-claim"
+  task_root_prefix=".cosheaf/tasks/task.node.issue.example-private-claim."
   if [[ -d "$run_root" ]]; then
     case "$run_root" in
       .cosheaf/orchestrator/*)
@@ -61,6 +62,22 @@ if cosheaf orchestrator run --help >/dev/null 2>&1; then
         exit 1
         ;;
     esac
+  fi
+  if compgen -G "${task_root_prefix}*" >/dev/null; then
+    for task_root in "${task_root_prefix}"*; do
+      if [[ -e "$task_root" ]]; then
+        case "$task_root" in
+          .cosheaf/tasks/task.node.issue.example-private-claim.*)
+            printf '\n# removing previous ignored task runtime: %s\n' "$task_root"
+            rm -rf "$task_root"
+            ;;
+          *)
+            printf 'Refusing to remove unexpected path: %s\n' "$task_root" >&2
+            exit 1
+            ;;
+        esac
+      fi
+    done
   fi
   run cosheaf orchestrator run --issue issue.example-private-claim --dry-run --local-only
 else
