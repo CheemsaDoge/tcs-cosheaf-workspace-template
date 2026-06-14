@@ -194,6 +194,18 @@ accepted knowledge, does not promote artifacts, and keeps public KB readonly.
 The provider smoke installs the framework from the `v0.2.2` tag by default.
 See `docs/AGENT_PROVIDERS.md` for safe real-provider setup rules.
 
+For verifier-gate and promotion-readiness boundaries, run:
+
+```bash
+make verifier-evidence-demo
+```
+
+That demo writes JSON output under `.cosheaf/verifier-evidence-demo/`, shows
+that skipped or not-applicable verifier gates are not passes, and reports that
+the private draft example is not promotion-ready. It does not require SAT, SMT,
+Lean, lake, hosted providers, MCP, API keys, accepted writes, promotion, or
+human-review spoofing. See `docs/VERIFICATION_WORKFLOW.md`.
+
 ## Using the public graph-theory foundation pack
 
 For real work, update or mount the latest `tcs-kb-public` as the readonly public

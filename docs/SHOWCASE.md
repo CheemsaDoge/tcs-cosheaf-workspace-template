@@ -30,7 +30,8 @@ The workflow demonstrates:
 8. Build a context pack for the example private issue.
 9. Optionally run a local dry-run worker if the installed framework version
    supports that CLI surface.
-10. Confirm no accepted auto-promotion happened.
+10. Optionally inspect verifier-gate and promotion-readiness boundaries.
+11. Confirm no accepted auto-promotion happened.
 
 ## Run It
 
@@ -50,6 +51,16 @@ If you want the older minimal demo path, run:
 ```bash
 bash scripts/demo_workspace.sh
 ```
+
+To inspect verifier and promotion-readiness boundaries without API keys,
+hosted providers, MCP, or mandatory SAT/SMT/Lean installations, run:
+
+```bash
+bash scripts/demo_verifier_evidence.sh
+```
+
+That script writes JSON under `.cosheaf/verifier-evidence-demo/` and treats
+skipped, not-applicable, or unavailable verifier/readiness paths as not-a-pass.
 
 ## Commands
 
@@ -73,6 +84,10 @@ update.
 The optional dry-run worker is skipped when the pinned framework version does
 not expose `cosheaf orchestrator run`. A skipped optional dry-run is not a
 verification pass and is not required for the basic workspace demo.
+
+The verifier-evidence demo also treats skipped or unavailable optional
+verification surfaces as not-a-pass. Promotion-readiness output is advisory and
+read-only; it does not write accepted knowledge or replace human review.
 
 ## Accepted vs Draft
 
