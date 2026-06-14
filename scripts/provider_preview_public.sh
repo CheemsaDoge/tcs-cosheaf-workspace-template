@@ -3,7 +3,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PYTHON_BIN="${PYTHON:-python}"
-FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-v0.2.2}"
+FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-v0.2.3}"
 OUTPUT_DIR="${COSHEAF_PROVIDER_PREVIEW_OUTPUT_DIR:-.cosheaf/provider-preview-public}"
 ISSUE_ID="${COSHEAF_PROVIDER_PREVIEW_ISSUE:-issue.example-private-claim}"
 PROVIDER="${COSHEAF_PROVIDER_PREVIEW_PROVIDER:-openai}"

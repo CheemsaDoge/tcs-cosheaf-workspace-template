@@ -9,7 +9,7 @@ BASH ?= bash
 endif
 
 install:
-	$(PYTHON) -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.2"
+	$(PYTHON) -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.2.3"
 
 workspace-info:
 	$(COSHEAF) workspace info
