@@ -42,10 +42,10 @@ The script runs the same commands below, does not promote artifacts, and keeps
 runtime output under ignored paths such as `.cosheaf/` and `context/TASKS/`.
 
 1. Install or make the `cosheaf` CLI available. For release-aligned local
-   testing, install the framework package from the `v0.3.0` tag:
+   testing, install the framework package from the `v0.4.0` tag:
 
 ```bash
-python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.3.0"
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.4.0"
 ```
 
 Makefile shortcut:
@@ -148,7 +148,7 @@ Keep private research in `kb/private/`. Replace or mount `kb/public/` from the
 public KB repository for real work. Do not manually merge the framework,
 public KB, and private workspace repositories into one mixed tree.
 
-With `tcs-cosheaf` `v0.3.0`, context packs can display formal-link metadata
+With `tcs-cosheaf` `v0.4.0`, context packs can display formal-link metadata
 from mounted public KB artifacts or from this template's draft public seed. The
 display is metadata-only: it does not mean Lean has verified the declaration,
 does not mean informal and formal statements are automatically aligned, and does
@@ -180,7 +180,7 @@ For the strategy-planner workflow, run:
 make strategy-demo
 ```
 
-Before `v0.4.0` is published, use a local framework checkout:
+For framework development, use a local framework checkout:
 
 ```bash
 COSHEAF_FRAMEWORK_ROOT=../tcs-cosheaf bash scripts/demo_strategy_planner.sh
@@ -211,7 +211,7 @@ example artifact is a draft without human review.
 
 Failure memory is research context only. It is not proof, refutation, verifier
 evidence, human review, gate success, accepted status, or promotion evidence.
-Until the failure-log CLI is available from the template's pinned framework
+If the active `cosheaf` command is older than the template's pinned framework
 tag, use a local framework checkout:
 
 ```bash
@@ -240,7 +240,7 @@ fake`.
 The automated provider smoke uses the fake provider only. It does not require
 an API key, does not make hosted API calls, does not require MCP, does not write
 accepted knowledge, does not promote artifacts, and keeps public KB readonly.
-The provider smoke installs the framework from the `v0.3.0` tag by default.
+The provider smoke installs the framework from the `v0.4.0` tag by default.
 See `docs/AGENT_PROVIDERS.md` for safe real-provider setup rules.
 
 For verifier-gate and promotion-readiness boundaries, run:

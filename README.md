@@ -41,7 +41,7 @@ from `tcs-kb-public`, and keep private work under `kb/private`.
 Install the framework package pinned by this template:
 
 ```bash
-python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.3.0"
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.4.0"
 ```
 
 Then inspect and validate the workspace:
@@ -71,7 +71,7 @@ Run the minimal workspace demo from a clean clone:
 bash scripts/demo_workspace.sh
 ```
 
-The demo installs `tcs-cosheaf` from the `v0.3.0` tag, inspects the workspace,
+The demo installs `tcs-cosheaf` from the `v0.4.0` tag, inspects the workspace,
 validates the configured public/private KB roots, runs the gatekeeper and PR
 checklist gate, and builds context for `issue.example-private-claim`.
 
@@ -108,7 +108,7 @@ ignored runtime directory. It does not use hosted API calls, does not require
 MCP, does not write accepted knowledge, does not promote artifacts, and does
 not mark human review complete. Public KB remains readonly.
 
-The demo installs `tcs-cosheaf` from the `v0.3.0` tag by default. Override the
+The demo installs `tcs-cosheaf` from the `v0.4.0` tag by default. Override the
 source with `COSHEAF_FRAMEWORK_REF=<ref>`, or use a local framework checkout
 with
 `COSHEAF_SKIP_INSTALL=1`, `PYTHONPATH=../tcs-cosheaf`, and
@@ -134,7 +134,7 @@ Or through Make:
 make research-run-demo
 ```
 
-This demo exercises the v0.3.0 CLI-first run loop: it starts a research run,
+This demo exercises the v0.4.0 CLI-first run loop: it starts a research run,
 records workspace info, validation, gate, memory search, context build, and
 checked-evidence help commands, finalizes the run, emits evidence and replay
 reports, and previews review export with `--dry-run`.
@@ -148,7 +148,7 @@ gate pass, accepted status, or promotion authority.
 
 See [Research Run Demo](docs/RESEARCH_RUN_DEMO.md) for the detailed runbook.
 
-The demo installs `tcs-cosheaf` from the `v0.3.0` tag by default. Override
+The demo installs `tcs-cosheaf` from the `v0.4.0` tag by default. Override
 with `COSHEAF_FRAMEWORK_REF=<ref>`, or use a local framework checkout:
 
 ```bash
@@ -172,13 +172,16 @@ Or through Make:
 make strategy-demo
 ```
 
-Before the `v0.4.0` tag is published, the script supports local framework
-development and automatically uses `../tcs-cosheaf` when that checkout exists.
-You can also set it explicitly:
+The script automatically uses `../tcs-cosheaf` when that checkout exists so
+framework development can exercise the same workflow. Otherwise it installs
+the pinned `v0.4.0` tag. You can also set the local checkout explicitly:
 
 ```bash
 COSHEAF_FRAMEWORK_ROOT=../tcs-cosheaf bash scripts/demo_strategy_planner.sh
 ```
+
+To force the published tag even when a sibling framework checkout exists, set
+`COSHEAF_FRAMEWORK_ROOT=.cosheaf/no-local-framework`.
 
 The demo builds a context pack, copies the strategy-planner input under ignored
 `.cosheaf/strategy-demo/` runtime paths, creates a strategy plan, starts and
@@ -213,9 +216,9 @@ not require an API key, and does not mark human review complete. Failure memory
 is research context only: it is not proof, refutation, verifier evidence,
 human review, gate success, or promotion evidence.
 
-The demo expects a framework version with artifact failure-log CLI support.
-Until that support is released as a pinned tag, run it against a local
-framework checkout:
+The demo expects a framework version with artifact failure-log CLI support. If
+the active `cosheaf` command is older than the pinned release, run it against a
+local framework checkout:
 
 ```bash
 PYTHONPATH="$(pwd)/../tcs-cosheaf" \
@@ -247,7 +250,7 @@ runs the orchestrator with `--provider fake`. It does not require MCP, does not
 write accepted knowledge, does not promote artifacts, does not mark human
 review complete, and keeps the public KB readonly.
 
-The smoke installs `tcs-cosheaf` from the `v0.3.0` tag by default. Real hosted
+The smoke installs `tcs-cosheaf` from the `v0.4.0` tag by default. Real hosted
 provider use is explicit user setup only; do not commit API keys, `.env`
 files, provider responses with private context, or logs containing secrets. See
 [Agent Providers](docs/AGENT_PROVIDERS.md).
