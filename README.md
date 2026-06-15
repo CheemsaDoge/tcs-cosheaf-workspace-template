@@ -120,6 +120,45 @@ On Windows, if `bash` is installed but not on `PATH`, run:
 mingw32-make cli-agent-demo BASH="C:/Program Files/Git/bin/bash.exe"
 ```
 
+## Research Run Demo
+
+Run the external-operator research-run demo:
+
+```bash
+bash scripts/demo_research_run.sh
+```
+
+Or through Make:
+
+```bash
+make research-run-demo
+```
+
+This demo exercises the v0.3.0 CLI-first run loop: it starts a research run,
+records workspace info, validation, gate, memory search, context build, and
+checked-evidence help commands, finalizes the run, emits evidence and replay
+reports, and previews review export with `--dry-run`.
+
+The demo writes runtime outputs under `.cosheaf/research-run-demo/` and
+`.cosheaf/runs/`, both ignored runtime areas. It does not use API keys, does
+not call hosted providers, does not require MCP, does not write accepted
+knowledge, does not promote artifacts, and does not create human review.
+Research-run records are provenance only: they are not proof, verifier pass,
+gate pass, accepted status, or promotion authority.
+
+See [Research Run Demo](docs/RESEARCH_RUN_DEMO.md) for the detailed runbook.
+
+Until the `v0.3.0` framework tag is published, this demo installs the framework
+from `main` by default. Override with `COSHEAF_FRAMEWORK_REF=<ref>`, or use a
+local framework checkout:
+
+```bash
+COSHEAF_SKIP_INSTALL=1 \
+PYTHONPATH="$(pwd)/../tcs-cosheaf" \
+COSHEAF_CMD="python -m cosheaf.cli" \
+bash scripts/demo_research_run.sh
+```
+
 ## Failure-Memory Demo
 
 Run the artifact failure-memory demo:
@@ -220,6 +259,7 @@ make pr-checklist
 make context
 make demo
 make cli-agent-demo
+make research-run-demo
 make failure-memory-demo
 make provider-config-check
 make provider-preview-public
