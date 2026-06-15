@@ -4,18 +4,21 @@ This demo shows the `v0.4.0` strategy-planner workflow from a user workspace.
 The framework CLI remains the agent interface. The workspace does not embed a
 hosted model runtime and does not require MCP.
 
-`v0.4.0` may not be published when this document is read. Before the release
-tag exists, run the demo against a local framework checkout:
+The demo installs the published `v0.4.0` tag by default. For framework
+development, run the demo against a local checkout:
 
 ```bash
 COSHEAF_FRAMEWORK_ROOT=../tcs-cosheaf bash scripts/demo_strategy_planner.sh
 ```
 
-The script uses `../tcs-cosheaf` automatically when that checkout exists. After
-the framework release is published, the same script can install the pinned tag:
+The script uses `../tcs-cosheaf` automatically when that checkout exists. To
+force the pinned release tag, point `COSHEAF_FRAMEWORK_ROOT` at a nonexistent
+path or run from a workspace without a sibling framework checkout:
 
 ```bash
-COSHEAF_FRAMEWORK_REF=v0.4.0 bash scripts/demo_strategy_planner.sh
+COSHEAF_FRAMEWORK_ROOT=.cosheaf/no-local-framework \
+COSHEAF_FRAMEWORK_REF=v0.4.0 \
+bash scripts/demo_strategy_planner.sh
 ```
 
 If you already have a desired `cosheaf` command on `PATH`, skip installation:

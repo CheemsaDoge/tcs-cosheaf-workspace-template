@@ -32,7 +32,7 @@ PY
   fi
 }
 
-run "$PYTHON_BIN" -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.3.0"
+run "$PYTHON_BIN" -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.4.0"
 add_python_user_scripts_to_path
 
 PUBLIC_KB_TARGET=".cosheaf/public-kb/tcs-kb-public"
