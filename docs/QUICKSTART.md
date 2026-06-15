@@ -174,6 +174,25 @@ That demo writes JSON output under `.cosheaf/cli-agent-demo/`, uses dry-run
 draft and bundle commands, and does not call hosted providers or require MCP.
 See `docs/AGENT_ACCESS.md`.
 
+For the strategy-planner workflow, run:
+
+```bash
+make strategy-demo
+```
+
+Before `v0.4.0` is published, use a local framework checkout:
+
+```bash
+COSHEAF_FRAMEWORK_ROOT=../tcs-cosheaf bash scripts/demo_strategy_planner.sh
+```
+
+The demo builds a context pack, stages the strategy-planner input under
+ignored `.cosheaf/strategy-demo/` runtime paths, records a research run,
+updates the plan from run provenance, previews strategy review export with
+`--dry-run`, and reruns validation and gates. Strategy plans are guidance only:
+not proof, checked evidence, verifier pass, gate pass, human review, accepted
+status, or promotion authority. See `docs/STRATEGY_PLANNER_WORKFLOW.md`.
+
 For artifact failure-memory workflow, run:
 
 ```bash

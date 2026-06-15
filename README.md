@@ -158,6 +158,37 @@ COSHEAF_CMD="python -m cosheaf.cli" \
 bash scripts/demo_research_run.sh
 ```
 
+## Strategy Planner Demo
+
+Run the `v0.4.0` strategy-planner workflow:
+
+```bash
+bash scripts/demo_strategy_planner.sh
+```
+
+Or through Make:
+
+```bash
+make strategy-demo
+```
+
+Before the `v0.4.0` tag is published, the script supports local framework
+development and automatically uses `../tcs-cosheaf` when that checkout exists.
+You can also set it explicitly:
+
+```bash
+COSHEAF_FRAMEWORK_ROOT=../tcs-cosheaf bash scripts/demo_strategy_planner.sh
+```
+
+The demo builds a context pack, copies the strategy-planner input under ignored
+`.cosheaf/strategy-demo/` runtime paths, creates a strategy plan, starts and
+finalizes a research run, updates the plan from run provenance, previews
+strategy review export with `--dry-run`, and runs validation/gates. It does not
+call hosted providers, require MCP, write accepted knowledge, promote
+artifacts, or create human review.
+
+See [Strategy Planner Workflow](docs/STRATEGY_PLANNER_WORKFLOW.md).
+
 ## Failure-Memory Demo
 
 Run the artifact failure-memory demo:
@@ -259,6 +290,7 @@ make context
 make demo
 make cli-agent-demo
 make research-run-demo
+make strategy-demo
 make failure-memory-demo
 make provider-config-check
 make provider-preview-public
