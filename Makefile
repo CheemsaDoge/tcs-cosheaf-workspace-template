@@ -1,4 +1,4 @@
-.PHONY: install workspace-info workspace validate gate index pr-checklist context demo cli-agent-demo research-run-demo failure-memory-demo provider-config-check provider-preview-public provider-fake-smoke verifier-evidence-demo
+.PHONY: install workspace-info workspace validate gate index pr-checklist context demo cli-agent-demo research-run-demo strategy-demo failure-memory-demo provider-config-check provider-preview-public provider-fake-smoke verifier-evidence-demo
 
 PYTHON ?= python
 COSHEAF ?= cosheaf
@@ -39,6 +39,9 @@ cli-agent-demo:
 
 research-run-demo:
 	$(BASH) scripts/demo_research_run.sh
+
+strategy-demo:
+	$(BASH) scripts/demo_strategy_planner.sh
 
 failure-memory-demo:
 	$(BASH) scripts/demo_failure_memory.sh
