@@ -18,9 +18,8 @@ With Make:
 make research-run-demo
 ```
 
-Until `tcs-cosheaf` publishes the `v0.3.0` tag, the script installs the
-framework from `main` by default because the pinned `v0.2.4` release does not
-contain the research-run CLI. Override the source with:
+The script installs the framework from the published `v0.3.0` tag by default.
+Override the source with:
 
 ```bash
 COSHEAF_FRAMEWORK_REF=<ref> bash scripts/demo_research_run.sh
