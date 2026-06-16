@@ -192,6 +192,28 @@ artifacts, or create human review.
 
 See [Strategy Planner Workflow](docs/STRATEGY_PLANNER_WORKFLOW.md).
 
+## Operator Session Demo
+
+Run the `v0.6.0` operator-session and review-handoff preview workflow:
+
+```bash
+make operator-session-demo
+```
+
+The script automatically uses `../tcs-cosheaf` when that checkout exists so
+framework development can exercise the unreleased operator-session CLI. When no
+local checkout is available, it installs the framework source configured by
+`COSHEAF_FRAMEWORK_REF`, defaulting to the future `v0.6.0` tag.
+
+The demo runs workspace info, validation, gates, context build, a strategy
+plan, operator-session start/append/finalize/scan, handoff build/show, and
+handoff export preview with `--dry-run`. Runtime outputs stay under ignored
+`.cosheaf/` paths and `context/TASKS/`. It does not call a hosted provider,
+require an API key, start MCP, modify public KB, write accepted artifacts,
+promote artifacts, mutate verifier results, or create human review.
+
+See [Operator Session Demo](docs/OPERATOR_SESSION_DEMO.md).
+
 ## Failure-Memory Demo
 
 Run the artifact failure-memory demo:
@@ -294,6 +316,7 @@ make demo
 make cli-agent-demo
 make research-run-demo
 make strategy-demo
+make operator-session-demo
 make failure-memory-demo
 make provider-config-check
 make provider-preview-public

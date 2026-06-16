@@ -193,6 +193,25 @@ updates the plan from run provenance, previews strategy review export with
 not proof, checked evidence, verifier pass, gate pass, human review, accepted
 status, or promotion authority. See `docs/STRATEGY_PLANNER_WORKFLOW.md`.
 
+For the operator-session and handoff preview workflow, run:
+
+```bash
+make operator-session-demo
+```
+
+That demo uses the active local framework checkout when `../tcs-cosheaf`
+exists; otherwise it installs the framework source configured by
+`COSHEAF_FRAMEWORK_REF`, defaulting to the future `v0.6.0` tag. It records a
+private-research operator session around the example issue, appends validation
+and gate check summaries, appends private draft/runtime references, scans the
+session, builds a handoff bundle, and previews handoff export with `--dry-run`.
+
+Operator-session and handoff records are review context only. They are not
+proof, verifier evidence, gate pass, source metadata, human review, accepted
+status, accepted refutation, or promotion authority. The demo writes runtime
+outputs only under ignored `.cosheaf/` paths and `context/TASKS/`; it does not
+modify public KB or accepted artifacts. See `docs/OPERATOR_SESSION_DEMO.md`.
+
 For artifact failure-memory workflow, run:
 
 ```bash
