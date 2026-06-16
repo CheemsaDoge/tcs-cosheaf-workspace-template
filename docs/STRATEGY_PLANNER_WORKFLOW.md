@@ -1,10 +1,10 @@
 # Strategy Planner Workflow
 
-This demo shows the `v0.4.0` strategy-planner workflow from a user workspace.
+This demo shows the `v0.5.0` strategy-planner workflow from a user workspace.
 The framework CLI remains the agent interface. The workspace does not embed a
 hosted model runtime and does not require MCP.
 
-The demo installs the published `v0.4.0` tag by default. For framework
+The demo installs the published `v0.5.0` tag by default. For framework
 development, run the demo against a local checkout:
 
 ```bash
@@ -17,7 +17,7 @@ path or run from a workspace without a sibling framework checkout:
 
 ```bash
 COSHEAF_FRAMEWORK_ROOT=.cosheaf/no-local-framework \
-COSHEAF_FRAMEWORK_REF=v0.4.0 \
+COSHEAF_FRAMEWORK_REF=v0.5.0 \
 bash scripts/demo_strategy_planner.sh
 ```
 
