@@ -6,10 +6,11 @@ keeps release-followup changes focused on reproducible workspace setup.
 ## Current Baseline
 
 - [x] Workspace template CI installs the framework through `make install`,
-  which pins the immutable `v0.4.0` tag:
-  `python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.4.0"`.
+  which pins the immutable `v0.5.0` tag:
+  `python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.5.0"`.
 - [x] Quickstart, README, Makefile, and demo scripts use the framework
-  `v0.4.0` tag instead of tracking `main`.
+  `v0.5.0` tag instead of tracking `main`, except the operator-session demo
+  which prefers a local framework checkout until `v0.6.0` is published.
 - [x] License policy is Apache-2.0 and the repository includes a root `LICENSE`.
 - [x] The private workspace demo is represented by
   `issues/open/issue.example-private-claim.yaml` and
@@ -20,6 +21,9 @@ keeps release-followup changes focused on reproducible workspace setup.
   knowledge.
 - [x] Formal-link display remains metadata-only and does not claim Lean,
   CSLib, mathlib, SAT, SMT, or informal/formal alignment verification.
+- [x] Operator-session and handoff demo records are review context only; they
+  do not write accepted knowledge, create human review, promote artifacts, or
+  mutate verifier results.
 
 ## Required Checks
 
@@ -47,10 +51,24 @@ Before updating this template to a later framework release:
 ## Workspace Demo Hardening
 
 - [x] Workspace template CI still installs `tcs-cosheaf` from immutable
-  `@v0.4.0`, not `@main`.
+  `@v0.5.0`, not `@main`.
 - [x] Workspace template CI runs workspace info, validation, gatekeeper, PR
   checklist gate, example issue context build, and whitespace checks.
 - [x] The clean-clone demo remains a private draft claim depending on the
   public seed definition; no demo artifact is promoted or expanded.
 - [x] Formal-link context display remains metadata-only and does not claim Lean
   verification or automatic informal/formal alignment.
+
+## Operator Session Demo
+
+- [x] `make operator-session-demo` delegates to
+  `scripts/demo_operator_session.sh`.
+- [x] The demo uses a local `../tcs-cosheaf` checkout for v0.6.0 development
+  and falls back to the configured `COSHEAF_FRAMEWORK_REF`.
+- [x] Runtime output stays under ignored `.cosheaf/` and `context/TASKS/`
+  paths.
+- [x] Handoff export is previewed with `--dry-run`; no `reviews/operator/`
+  file is written by the default demo.
+- [x] The demo does not modify `kb/public`, write `kb/accepted`, promote
+  artifacts, create human review, call hosted providers, require API keys, or
+  require MCP.
