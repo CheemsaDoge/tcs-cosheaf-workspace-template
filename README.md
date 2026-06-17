@@ -236,6 +236,32 @@ promote artifacts, mutate verifier results, or create human review.
 
 See [Operator Session Demo](docs/OPERATOR_SESSION_DEMO.md).
 
+## Cross-Check Demo
+
+Run the V15 workflow cross-check and checker/cross-check eval path:
+
+```bash
+make crosscheck-demo
+```
+
+The script automatically uses `../tcs-cosheaf` when that checkout exists so
+framework development can exercise local changes. It requires the V15
+`workflow cross-check`, `workflow evidence-report`, `gap list`, and
+`eval checker-crosscheck` surfaces, plus the framework eval case file under
+`evals/checker_crosscheck/`.
+
+The demo starts a workflow for `issue.example-private-claim`, runs local
+workflow actions, builds cross-check/evidence/gap reports, runs the
+checker/cross-check eval against the framework case file, and asserts that
+checked pass, skipped, and inconclusive outputs remain review context only.
+
+The demo does not write public KB content, accepted artifacts, source
+metadata, verifier results, gate results, promotion records, or human review.
+Cross-check reports, gap reports, checker sidecars, and eval output are not
+proof, source metadata, verifier pass, gate pass, accepted status, accepted
+theorem/refutation, or promotion authority. See
+[Cross-Check Demo](docs/CROSSCHECK_DEMO.md).
+
 ## Failure-Memory Demo
 
 Run the artifact failure-memory demo:
@@ -341,6 +367,7 @@ make strategy-demo
 make research-loop-demo
 make operator-session-demo
 make reviewable-workflow-demo
+make crosscheck-demo
 make failure-memory-demo
 make provider-config-check
 make provider-preview-public
@@ -364,6 +391,12 @@ runtime workflow, runs whitelisted local actions, previews a draft proposal,
 builds and scans a handoff, and dry-runs handoff export without writing
 accepted knowledge, public KB content, source metadata, verifier results, gate
 results, promotion, or human review.
+`make crosscheck-demo` runs the V15 workflow cross-check, gap report, and
+checker/cross-check eval path using a sibling framework checkout when
+available. It requires the V15 framework surface and the framework eval case
+file under `evals/checker_crosscheck/`. It writes only ignored runtime outputs
+and does not create accepted knowledge, source metadata, verifier results,
+gate results, promotion, or human review.
 `make workspace` remains available as a compatibility alias for
 `make workspace-info`.
 On Windows, if `bash` is installed but not on `PATH`, run the demo with an

@@ -31,7 +31,9 @@ The workflow demonstrates:
 9. Optionally run a local dry-run worker if the installed framework version
    supports that CLI surface.
 10. Optionally inspect verifier-gate and promotion-readiness boundaries.
-11. Confirm no accepted auto-promotion happened.
+11. Optionally run the V15 workflow cross-check and checker/cross-check eval
+    path against a local framework checkout.
+12. Confirm no accepted auto-promotion happened.
 
 ## Run It
 
@@ -61,6 +63,18 @@ bash scripts/demo_verifier_evidence.sh
 
 That script writes JSON under `.cosheaf/verifier-evidence-demo/` and treats
 skipped, not-applicable, or unavailable verifier/readiness paths as not-a-pass.
+
+To inspect the V15 workflow cross-check, gap report, and checker/cross-check
+eval path against a local framework checkout, run:
+
+```bash
+make crosscheck-demo
+```
+
+That target writes JSON under ignored `.cosheaf/` runtime paths. Cross-check
+reports, gap reports, checker sidecars, and eval output are review context
+only: not proof, source metadata, verifier pass, gate pass, human review,
+accepted status, accepted theorem/refutation, or promotion authority.
 
 ## Commands
 
