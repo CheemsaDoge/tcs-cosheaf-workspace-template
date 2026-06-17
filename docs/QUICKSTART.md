@@ -212,6 +212,20 @@ status, accepted refutation, or promotion authority. The demo writes runtime
 outputs only under ignored `.cosheaf/` paths and `context/TASKS/`; it does not
 modify public KB or accepted artifacts. See `docs/OPERATOR_SESSION_DEMO.md`.
 
+For the bounded research-loop workflow from the unreleased `v0.7.0` line, run:
+
+```bash
+make research-loop-demo
+```
+
+This demo requires a local or explicit v0.7-capable framework checkout because
+the template install target remains pinned to the published `v0.6.0` release.
+It starts a loop, appends a failed attempt, exports a task packet, imports a
+deterministic retry result with `retry_justification`, scans the loop, and
+finalizes it. Outputs stay under ignored `.cosheaf/` paths. The loop material
+is review context only: not proof, source metadata, verifier pass, gate pass,
+human review, accepted status, accepted refutation, or promotion authority.
+
 For artifact failure-memory workflow, run:
 
 ```bash
