@@ -81,7 +81,7 @@ accepted status, accepted theorem/refutation, or promotion authority.
 The showcase script runs the same core commands that a user can run manually:
 
 ```bash
-python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.9.0"
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.10.0"
 bash scripts/bootstrap_public_kb.sh .cosheaf/public-kb/tcs-kb-public
 cosheaf workspace info
 cosheaf validate

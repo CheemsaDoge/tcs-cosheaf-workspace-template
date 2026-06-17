@@ -1,9 +1,8 @@
 # Reviewable Workflow Demo
 
-This demo exercises the post-`v0.9.0` reviewable-workflow path from the
-workspace template. It is intended for framework development and release
-validation before the next published tag contains the full V14 follow-up
-surface.
+This demo exercises the published `v0.10.0` reviewable-workflow path from the
+workspace template. It covers the V14 follow-up surface that is now included in
+the published tag.
 
 Run:
 
@@ -18,16 +17,16 @@ checkout is present, it runs:
 python -m cosheaf.cli
 ```
 
-through `PYTHONPATH` so the workspace can validate framework changes before a
-new tag is published. If no local checkout is present, set an explicit
-framework ref:
+through `PYTHONPATH` so the workspace can validate local framework changes. If
+no local checkout is present, the script installs the published `v0.10.0` tag by
+default. You can also set an explicit framework ref:
 
 ```bash
 COSHEAF_FRAMEWORK_REF=<tag-or-commit> bash scripts/demo_reviewable_workflow.sh
 ```
 
-The published `v0.9.0` tag contains the initial workflow surface. The complete
-demo requires the later V14 workflow `draft-proposal` and `handoff` commands.
+The published `v0.10.0` tag contains the workflow `draft-proposal` and
+`handoff` commands required by this demo.
 
 The demo:
 
