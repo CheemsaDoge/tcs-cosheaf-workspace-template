@@ -3,7 +3,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PYTHON_BIN="${PYTHON:-python}"
-FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-v0.9.0}"
+FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-v0.10.0}"
 FRAMEWORK_ROOT="${COSHEAF_FRAMEWORK_ROOT:-$REPO_ROOT/../tcs-cosheaf}"
 EVAL_REPO_ROOT="${COSHEAF_CHECKER_EVAL_REPO_ROOT:-$FRAMEWORK_ROOT}"
 OUTPUT_DIR="${COSHEAF_CROSSCHECK_DEMO_OUTPUT_DIR:-.cosheaf/crosscheck-demo}"
@@ -156,7 +156,8 @@ Use a sibling checkout:
 or install a newer explicit ref:
   COSHEAF_FRAMEWORK_REF=<tag-or-commit> bash scripts/demo_crosscheck.sh
 
-The published v0.9.0 tag does not contain the V15 checker/cross-check eval.
+The published v0.10.0 tag contains the V15 checker/cross-check CLI surface.
+The eval case file still comes from a framework repository checkout.
 EOF
     exit 1
   fi

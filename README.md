@@ -41,7 +41,7 @@ from `tcs-kb-public`, and keep private work under `kb/private`.
 Install the framework package pinned by this template:
 
 ```bash
-python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.9.0"
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.10.0"
 ```
 
 Then inspect and validate the workspace:
@@ -71,7 +71,7 @@ Run the minimal workspace demo from a clean clone:
 bash scripts/demo_workspace.sh
 ```
 
-The demo installs `tcs-cosheaf` from the `v0.9.0` tag, inspects the workspace,
+The demo installs `tcs-cosheaf` from the `v0.10.0` tag, inspects the workspace,
 validates the configured public/private KB roots, runs the gatekeeper and PR
 checklist gate, and builds context for `issue.example-private-claim`.
 
@@ -108,7 +108,7 @@ ignored runtime directory. It does not use hosted API calls, does not require
 MCP, does not write accepted knowledge, does not promote artifacts, and does
 not mark human review complete. Public KB remains readonly.
 
-The demo installs `tcs-cosheaf` from the `v0.9.0` tag by default. Override the
+The demo installs `tcs-cosheaf` from the `v0.10.0` tag by default. Override the
 source with `COSHEAF_FRAMEWORK_REF=<ref>`, or use a local framework checkout
 with
 `COSHEAF_SKIP_INSTALL=1`, `PYTHONPATH=../tcs-cosheaf`, and
@@ -134,7 +134,7 @@ Or through Make:
 make research-run-demo
 ```
 
-This demo exercises the v0.9.0 CLI-first run loop: it starts a research run,
+This demo exercises the v0.10.0 CLI-first run loop: it starts a research run,
 records workspace info, validation, gate, memory search, context build, and
 checked-evidence help commands, finalizes the run, emits evidence and replay
 reports, and previews review export with `--dry-run`.
@@ -148,7 +148,7 @@ gate pass, accepted status, or promotion authority.
 
 See [Research Run Demo](docs/RESEARCH_RUN_DEMO.md) for the detailed runbook.
 
-The demo installs `tcs-cosheaf` from the `v0.9.0` tag by default. Override
+The demo installs `tcs-cosheaf` from the `v0.10.0` tag by default. Override
 with `COSHEAF_FRAMEWORK_REF=<ref>`, or use a local framework checkout:
 
 ```bash
@@ -160,7 +160,7 @@ bash scripts/demo_research_run.sh
 
 ## Strategy Planner Demo
 
-Run the `v0.9.0` strategy-planner workflow:
+Run the `v0.10.0` strategy-planner workflow:
 
 ```bash
 bash scripts/demo_strategy_planner.sh
@@ -174,7 +174,7 @@ make strategy-demo
 
 The script automatically uses `../tcs-cosheaf` when that checkout exists so
 framework development can exercise the same workflow. Otherwise it installs
-the pinned `v0.9.0` tag. You can also set the local checkout explicitly:
+the pinned `v0.10.0` tag. You can also set the local checkout explicitly:
 
 ```bash
 COSHEAF_FRAMEWORK_ROOT=../tcs-cosheaf bash scripts/demo_strategy_planner.sh
@@ -194,7 +194,7 @@ See [Strategy Planner Workflow](docs/STRATEGY_PLANNER_WORKFLOW.md).
 
 ## Research Loop Demo
 
-Run the published `v0.9.0` bounded research-loop workflow:
+Run the published `v0.10.0` bounded research-loop workflow:
 
 ```bash
 make research-loop-demo
@@ -206,7 +206,7 @@ packet, imports a deterministic retry result with `retry_justification`, scans
 the loop, and finalizes it. Runtime outputs stay under ignored `.cosheaf/`
 paths.
 
-The demo installs the framework from the published `v0.9.0` tag by default.
+The demo installs the framework from the published `v0.10.0` tag by default.
 When `../tcs-cosheaf` exists, it uses the local checkout for faster
 development feedback instead.
 
@@ -216,7 +216,7 @@ results, create human review, or treat loop success as accepted knowledge.
 
 ## Operator Session Demo
 
-Run the `v0.9.0` operator-session and review-handoff preview workflow:
+Run the `v0.10.0` operator-session and review-handoff preview workflow:
 
 ```bash
 make operator-session-demo
@@ -225,7 +225,7 @@ make operator-session-demo
 The script automatically uses `../tcs-cosheaf` when that checkout exists so
 framework development can exercise local changes. When no local checkout is
 available, it installs the framework source configured by
-`COSHEAF_FRAMEWORK_REF`, defaulting to the published `v0.9.0` tag.
+`COSHEAF_FRAMEWORK_REF`, defaulting to the published `v0.10.0` tag.
 
 The demo runs workspace info, validation, gates, context build, a strategy
 plan, operator-session start/append/finalize/scan, handoff build/show, and
@@ -320,7 +320,7 @@ runs the orchestrator with `--provider fake`. It does not require MCP, does not
 write accepted knowledge, does not promote artifacts, does not mark human
 review complete, and keeps the public KB readonly.
 
-The smoke installs `tcs-cosheaf` from the `v0.9.0` tag by default. Real hosted
+The smoke installs `tcs-cosheaf` from the `v0.10.0` tag by default. Real hosted
 provider use is explicit user setup only; do not commit API keys, `.env`
 files, provider responses with private context, or logs containing secrets. See
 [Agent Providers](docs/AGENT_PROVIDERS.md).
@@ -385,7 +385,7 @@ targets may install the framework source configured by `COSHEAF_FRAMEWORK_REF`.
 `make verifier-evidence-demo` runs `scripts/demo_verifier_evidence.sh`, which
 shows promotion-readiness and verifier-gate boundaries without API keys,
 hosted providers, MCP, accepted writes, or human-review spoofing.
-`make reviewable-workflow-demo` runs the post-`v0.9.0` reviewable-workflow
+`make reviewable-workflow-demo` runs the published `v0.10.0` reviewable-workflow
 handoff path using a sibling framework checkout when available. It creates a
 runtime workflow, runs whitelisted local actions, previews a draft proposal,
 builds and scans a handoff, and dry-runs handoff export without writing

@@ -16,10 +16,11 @@ checkout is present, it runs:
 python -m cosheaf.cli
 ```
 
-through `PYTHONPATH` so the workspace can validate framework changes before a
-new tag is published. The checker/cross-check eval cases live in the framework
-repository under `evals/checker_crosscheck/cases.yaml`, so the demo needs a
-local framework checkout or an explicit `COSHEAF_CHECKER_EVAL_REPO_ROOT`.
+through `PYTHONPATH` so the workspace can validate framework changes. The
+checker/cross-check eval cases live in the framework repository under
+`evals/checker_crosscheck/cases.yaml`, so the demo needs a local framework
+checkout or an explicit `COSHEAF_CHECKER_EVAL_REPO_ROOT` even when the CLI is
+installed from the published tag.
 
 If no local checkout is present, set an explicit framework ref and eval case
 root:
@@ -30,7 +31,8 @@ COSHEAF_CHECKER_EVAL_REPO_ROOT=/path/to/tcs-cosheaf \
 bash scripts/demo_crosscheck.sh
 ```
 
-The published `v0.9.0` tag does not contain the V15 checker/cross-check eval.
+The published `v0.10.0` tag contains the V15 checker/cross-check CLI surface.
+The separate eval case file still comes from a framework repository checkout.
 
 The demo:
 
