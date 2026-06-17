@@ -230,6 +230,21 @@ They are not proof, source metadata, verifier pass, gate pass, human review,
 accepted status, accepted refutation, or promotion authority. See
 `docs/REVIEWABLE_WORKFLOW_DEMO.md`.
 
+For the V15 workflow cross-check and checker/cross-check eval path, run:
+
+```bash
+make crosscheck-demo
+```
+
+This demo requires a local or explicit V15-capable framework checkout because
+the template install target remains pinned to the published `v0.9.0` release.
+It starts a workflow for the example issue, runs local workflow actions, builds
+cross-check/evidence/gap reports, and runs the checker/cross-check eval
+against the framework eval cases. Outputs stay under ignored `.cosheaf/`
+paths. The reports are review context only: not proof, source metadata,
+verifier pass, gate pass, human review, accepted status, accepted
+theorem/refutation, or promotion authority.
+
 For the published `v0.9.0` bounded research-loop workflow, run:
 
 ```bash
