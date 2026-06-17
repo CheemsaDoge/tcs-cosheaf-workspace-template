@@ -340,6 +340,7 @@ make research-run-demo
 make strategy-demo
 make research-loop-demo
 make operator-session-demo
+make reviewable-workflow-demo
 make failure-memory-demo
 make provider-config-check
 make provider-preview-public
@@ -357,6 +358,12 @@ targets may install the framework source configured by `COSHEAF_FRAMEWORK_REF`.
 `make verifier-evidence-demo` runs `scripts/demo_verifier_evidence.sh`, which
 shows promotion-readiness and verifier-gate boundaries without API keys,
 hosted providers, MCP, accepted writes, or human-review spoofing.
+`make reviewable-workflow-demo` runs the post-`v0.9.0` reviewable-workflow
+handoff path using a sibling framework checkout when available. It creates a
+runtime workflow, runs whitelisted local actions, previews a draft proposal,
+builds and scans a handoff, and dry-runs handoff export without writing
+accepted knowledge, public KB content, source metadata, verifier results, gate
+results, promotion, or human review.
 `make workspace` remains available as a compatibility alias for
 `make workspace-info`.
 On Windows, if `bash` is installed but not on `PATH`, run the demo with an

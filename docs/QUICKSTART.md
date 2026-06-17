@@ -212,6 +212,24 @@ status, accepted refutation, or promotion authority. The demo writes runtime
 outputs only under ignored `.cosheaf/` paths and `context/TASKS/`; it does not
 modify public KB or accepted artifacts. See `docs/OPERATOR_SESSION_DEMO.md`.
 
+For the post-`v0.9.0` reviewable-workflow handoff path, run:
+
+```bash
+make reviewable-workflow-demo
+```
+
+That demo uses the active local framework checkout when `../tcs-cosheaf`
+exists. It requires the later V14 workflow `draft-proposal` and `handoff`
+commands, so the published `v0.9.0` tag alone is not enough for the full demo.
+It starts a workflow for the example issue, runs whitelisted local actions,
+checks readiness, previews a draft proposal with `--dry-run`, builds and scans
+a workflow handoff, and previews handoff export with `--dry-run`.
+
+Workflow records, draft proposals, and handoff packets are review context only.
+They are not proof, source metadata, verifier pass, gate pass, human review,
+accepted status, accepted refutation, or promotion authority. See
+`docs/REVIEWABLE_WORKFLOW_DEMO.md`.
+
 For the published `v0.9.0` bounded research-loop workflow, run:
 
 ```bash
