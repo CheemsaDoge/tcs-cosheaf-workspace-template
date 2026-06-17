@@ -42,10 +42,10 @@ The script runs the same commands below, does not promote artifacts, and keeps
 runtime output under ignored paths such as `.cosheaf/` and `context/TASKS/`.
 
 1. Install or make the `cosheaf` CLI available. For release-aligned local
-   testing, install the framework package from the `v0.7.0` tag:
+   testing, install the framework package from the `v0.8.0` tag:
 
 ```bash
-python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.7.0"
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.8.0"
 ```
 
 Makefile shortcut:
@@ -148,7 +148,7 @@ Keep private research in `kb/private/`. Replace or mount `kb/public/` from the
 public KB repository for real work. Do not manually merge the framework,
 public KB, and private workspace repositories into one mixed tree.
 
-With `tcs-cosheaf` `v0.7.0`, context packs can display formal-link metadata
+With `tcs-cosheaf` `v0.8.0`, context packs can display formal-link metadata
 from mounted public KB artifacts or from this template's draft public seed. The
 display is metadata-only: it does not mean Lean has verified the declaration,
 does not mean informal and formal statements are automatically aligned, and does
@@ -201,7 +201,7 @@ make operator-session-demo
 
 That demo uses the active local framework checkout when `../tcs-cosheaf`
 exists; otherwise it installs the framework source configured by
-`COSHEAF_FRAMEWORK_REF`, defaulting to the published `v0.7.0` tag. It records a
+`COSHEAF_FRAMEWORK_REF`, defaulting to the published `v0.8.0` tag. It records a
 private-research operator session around the example issue, appends validation
 and gate check summaries, appends private draft/runtime references, scans the
 session, builds a handoff bundle, and previews handoff export with `--dry-run`.
@@ -212,14 +212,14 @@ status, accepted refutation, or promotion authority. The demo writes runtime
 outputs only under ignored `.cosheaf/` paths and `context/TASKS/`; it does not
 modify public KB or accepted artifacts. See `docs/OPERATOR_SESSION_DEMO.md`.
 
-For the published `v0.7.0` bounded research-loop workflow, run:
+For the published `v0.8.0` bounded research-loop workflow, run:
 
 ```bash
 make research-loop-demo
 ```
 
 This demo requires a local or explicit v0.7-capable framework checkout because
-the template install target remains pinned to the published `v0.7.0` release.
+the template install target remains pinned to the published `v0.8.0` release.
 It starts a loop, appends a failed attempt, exports a task packet, imports a
 deterministic retry result with `retry_justification`, scans the loop, and
 finalizes it. Outputs stay under ignored `.cosheaf/` paths. The loop material
@@ -273,7 +273,7 @@ fake`.
 The automated provider smoke uses the fake provider only. It does not require
 an API key, does not make hosted API calls, does not require MCP, does not write
 accepted knowledge, does not promote artifacts, and keeps public KB readonly.
-The provider smoke installs the framework from the `v0.7.0` tag by default.
+The provider smoke installs the framework from the `v0.8.0` tag by default.
 See `docs/AGENT_PROVIDERS.md` for safe real-provider setup rules.
 
 For verifier-gate and promotion-readiness boundaries, run:

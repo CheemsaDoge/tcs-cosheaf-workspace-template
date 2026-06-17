@@ -3,7 +3,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PYTHON_BIN="${PYTHON:-python}"
-FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-v0.7.0}"
+FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-v0.8.0}"
 OUTPUT_DIR="${COSHEAF_VERIFIER_DEMO_OUTPUT_DIR:-.cosheaf/verifier-evidence-demo}"
 ARTIFACT_ID="${COSHEAF_VERIFIER_DEMO_ARTIFACT:-claim.example-private}"
 
