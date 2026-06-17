@@ -192,6 +192,31 @@ artifacts, or create human review.
 
 See [Strategy Planner Workflow](docs/STRATEGY_PLANNER_WORKFLOW.md).
 
+## Research Loop Demo
+
+Run the unreleased `v0.7.0` bounded research-loop workflow against a local
+framework checkout:
+
+```bash
+make research-loop-demo
+```
+
+This demo starts a bounded loop for `issue.example-private-claim`, records one
+failed attempt, shows repeat-failure guidance, exports a bounded operator task
+packet, imports a deterministic retry result with `retry_justification`, scans
+the loop, and finalizes it. Runtime outputs stay under ignored `.cosheaf/`
+paths.
+
+Because research-loop commands are not in the published `v0.6.0` release, the
+demo uses `../tcs-cosheaf` or an explicit `COSHEAF_CMD`/`PYTHONPATH` setup. It
+does not change the template's published-release install pin. Without a
+v0.7-capable framework source, the script exits with setup guidance instead of
+installing `main` implicitly.
+
+The demo does not call hosted providers, require API keys or MCP, modify public
+KB, write accepted artifacts, promote artifacts, mutate verifier or gate
+results, create human review, or treat loop success as accepted knowledge.
+
 ## Operator Session Demo
 
 Run the `v0.6.0` operator-session and review-handoff preview workflow:
@@ -316,6 +341,7 @@ make demo
 make cli-agent-demo
 make research-run-demo
 make strategy-demo
+make research-loop-demo
 make operator-session-demo
 make failure-memory-demo
 make provider-config-check
