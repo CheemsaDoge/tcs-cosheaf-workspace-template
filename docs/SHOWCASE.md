@@ -67,7 +67,7 @@ skipped, not-applicable, or unavailable verifier/readiness paths as not-a-pass.
 The showcase script runs the same core commands that a user can run manually:
 
 ```bash
-python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.6.0"
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.7.0"
 bash scripts/bootstrap_public_kb.sh .cosheaf/public-kb/tcs-kb-public
 cosheaf workspace info
 cosheaf validate
