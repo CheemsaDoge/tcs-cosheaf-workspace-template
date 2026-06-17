@@ -1,6 +1,6 @@
 # Research Run Demo
 
-This demo shows how a workspace user can drive the v0.7.0 external-operator
+This demo shows how a workspace user can drive the v0.9.0 external-operator
 run loop through the Cosheaf CLI and Git-oriented workflow.
 
 It is not an embedded agent runtime, not an MCP workflow, and not a hosted
@@ -18,7 +18,7 @@ With Make:
 make research-run-demo
 ```
 
-The script installs the framework from the published `v0.7.0` tag by default.
+The script installs the framework from the published `v0.9.0` tag by default.
 Override the source with:
 
 ```bash
