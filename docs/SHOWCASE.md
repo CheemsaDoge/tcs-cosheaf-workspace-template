@@ -76,6 +76,19 @@ reports, gap reports, checker sidecars, and eval output are review context
 only: not proof, source metadata, verifier pass, gate pass, human review,
 accepted status, accepted theorem/refutation, or promotion authority.
 
+To run the canonical CLI-first AI math collaborator walkthrough, run:
+
+```bash
+make ai-math-collaborator-demo
+```
+
+That target composes existing demo paths plus the smoke benchmark/report
+commands. It writes only ignored runtime output and remains review context:
+not a hosted provider run, MCP requirement, accepted write, public KB mutation,
+promotion, or human review.
+If benchmark eval cases are not present in the selected repo root, the
+benchmark rows are recorded as skipped rather than treated as passes.
+
 ## Commands
 
 The showcase script runs the same core commands that a user can run manually:

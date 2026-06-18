@@ -92,6 +92,20 @@ limitations.
 
 ## CLI Agent Demo
 
+Run the canonical AI math collaborator demo:
+
+```bash
+make ai-math-collaborator-demo
+```
+
+This combines the workspace, gate, context, CLI-agent, planner, research-run,
+campaign, and smoke benchmark paths into one CLI-first walkthrough. It writes
+runtime outputs under ignored `.cosheaf/` paths. It does not call hosted
+providers, require MCP, write accepted knowledge, promote artifacts, mutate
+public KB, or create human review.
+The smoke benchmark runs only when repository-local benchmark eval cases are
+available; otherwise the demo records the benchmark rows as skipped, not pass.
+
 Run the CLI-first agent demo:
 
 ```bash
@@ -382,6 +396,7 @@ make index
 make pr-checklist
 make context
 make demo
+make ai-math-collaborator-demo
 make cli-agent-demo
 make research-run-demo
 make strategy-demo
@@ -407,6 +422,9 @@ targets may install the framework source configured by `COSHEAF_FRAMEWORK_REF`.
 `make verifier-evidence-demo` runs `scripts/demo_verifier_evidence.sh`, which
 shows promotion-readiness and verifier-gate boundaries without API keys,
 hosted providers, MCP, accepted writes, or human-review spoofing.
+`make ai-math-collaborator-demo` runs the canonical CLI-first AI math
+collaborator walkthrough in `scripts/demo_ai_math_collaborator.sh`. It composes
+existing demo paths and writes only ignored runtime outputs.
 `make reviewable-workflow-demo` runs the published `v0.12.0` reviewable-workflow
 handoff path using a sibling framework checkout when available. It creates a
 runtime workflow, runs whitelisted local actions, previews a draft proposal,

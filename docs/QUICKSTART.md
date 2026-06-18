@@ -167,6 +167,20 @@ substitute for human review for accepted public KB artifacts.
 For the CLI-first agent workflow, run:
 
 ```bash
+make ai-math-collaborator-demo
+```
+
+That is the canonical AI math collaborator walkthrough: it composes existing
+workspace, context, CLI-agent, planner, research-run, campaign, and smoke
+benchmark paths while keeping outputs under ignored `.cosheaf/` runtime
+directories. It is review context only: no hosted provider, MCP requirement,
+accepted write, promotion, public KB write, or human-review spoofing.
+The smoke benchmark portion uses repo-local eval cases when available and
+otherwise records skipped JSON, not a pass.
+
+For just the smaller CLI-agent path, run:
+
+```bash
 make cli-agent-demo
 ```
 
