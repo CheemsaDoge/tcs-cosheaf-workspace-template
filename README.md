@@ -262,6 +262,26 @@ proof, source metadata, verifier pass, gate pass, accepted status, accepted
 theorem/refutation, or promotion authority. See
 [Cross-Check Demo](docs/CROSSCHECK_DEMO.md).
 
+## Campaign Demo
+
+Run the V16 campaign handoff and campaign eval path:
+
+```bash
+make campaign-demo
+```
+
+The script uses `../tcs-cosheaf` when that checkout exists. Until `v0.11.0` is
+published, use a sibling framework checkout or set `COSHEAF_FRAMEWORK_REF` to a
+V16-capable ref. The demo starts a campaign for `issue.example-private-claim`,
+previews and exports one bounded operator task packet, appends one safe
+campaign attempt, builds a review handoff, runs `eval campaign`, and asserts
+that campaign outputs remain review context only.
+
+The demo does not call hosted providers, run a shell-backed campaign loop,
+write public KB content, create accepted artifacts, fabricate source metadata,
+create verifier/gate authority, promote artifacts, or create human review. See
+[Campaign Demo](docs/CAMPAIGN_DEMO.md).
+
 ## Failure-Memory Demo
 
 Run the artifact failure-memory demo:
@@ -368,6 +388,7 @@ make research-loop-demo
 make operator-session-demo
 make reviewable-workflow-demo
 make crosscheck-demo
+make campaign-demo
 make failure-memory-demo
 make provider-config-check
 make provider-preview-public
@@ -397,6 +418,11 @@ available. It requires the V15 framework surface and the framework eval case
 file under `evals/checker_crosscheck/`. It writes only ignored runtime outputs
 and does not create accepted knowledge, source metadata, verifier results,
 gate results, promotion, or human review.
+`make campaign-demo` runs the V16 campaign handoff and campaign eval path using
+a sibling framework checkout or explicit `COSHEAF_FRAMEWORK_REF`. It writes
+only ignored runtime outputs and does not call hosted providers, run a
+shell-backed campaign loop, create accepted knowledge, source metadata,
+verifier/gate authority, promotion, or human review.
 `make workspace` remains available as a compatibility alias for
 `make workspace-info`.
 On Windows, if `bash` is installed but not on `PATH`, run the demo with an

@@ -246,6 +246,21 @@ cases. Outputs stay under ignored `.cosheaf/` paths. The reports are review
 context only: not proof, source metadata, verifier pass, gate pass, human
 review, accepted status, accepted theorem/refutation, or promotion authority.
 
+For the V16 campaign handoff and campaign eval path, run:
+
+```bash
+make campaign-demo
+```
+
+This demo uses the active sibling `../tcs-cosheaf` checkout when available.
+Until `v0.11.0` is published, keep that checkout or set
+`COSHEAF_FRAMEWORK_REF` to a V16-capable ref. It starts a campaign for the
+example issue, previews and exports one bounded operator task packet, appends
+one safe campaign attempt, builds a campaign handoff, runs the campaign eval
+suite, and stores outputs under ignored `.cosheaf/` paths. Campaign outputs
+are review context only: not proof, source metadata, verifier pass, gate pass,
+human review, accepted status, accepted refutation, or promotion authority.
+
 For the published `v0.10.0` bounded research-loop workflow, run:
 
 ```bash
