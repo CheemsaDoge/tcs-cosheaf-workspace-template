@@ -1,4 +1,4 @@
-.PHONY: install workspace-info workspace validate gate index pr-checklist context demo ai-math-collaborator-demo cli-agent-demo research-run-demo strategy-demo research-loop-demo operator-session-demo reviewable-workflow-demo crosscheck-demo campaign-demo failure-memory-demo provider-config-check provider-preview-public provider-fake-smoke verifier-evidence-demo
+.PHONY: install workspace-info workspace validate gate index pr-checklist context demo ai-math-collaborator-demo cli-agent-demo research-run-demo strategy-demo research-loop-demo operator-session-demo reviewable-workflow-demo crosscheck-demo campaign-demo failure-memory-demo site-demo-export provider-config-check provider-preview-public provider-fake-smoke verifier-evidence-demo
 
 PYTHON ?= python
 COSHEAF ?= cosheaf
@@ -63,6 +63,9 @@ campaign-demo:
 
 failure-memory-demo:
 	$(BASH) scripts/demo_failure_memory.sh
+
+site-demo-export:
+	$(BASH) scripts/export_site_demo.sh
 
 provider-config-check:
 	$(BASH) scripts/provider_fake_smoke.sh config-check

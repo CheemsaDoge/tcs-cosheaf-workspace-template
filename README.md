@@ -334,6 +334,23 @@ bash scripts/demo_failure_memory.sh
 To explicitly install a framework source before running the demo, set
 `COSHEAF_INSTALL_FRAMEWORK=1 COSHEAF_FRAMEWORK_REF=<ref>`.
 
+## Website Demo Export
+
+Generate the static website demo fixture:
+
+```bash
+make site-demo-export
+```
+
+This writes deterministic JSON files under `examples/site-data/` using
+`cosheaf site export --demo`. The script prefers a local sibling framework
+checkout at `../tcs-cosheaf` because the website export command is newer than
+the pinned `v1.0.0` clean-clone baseline.
+
+The fixture is demo-only display data. It does not include full private
+artifact statements, provider prompts, API keys, tokens, accepted writes,
+promotion, or human-review authority. See [Website Demo Export](docs/WEBSITE.md).
+
 ## Provider Fake Smoke
 
 Run the fake provider smoke when you want to exercise the hosted-worker
@@ -406,6 +423,7 @@ make reviewable-workflow-demo
 make crosscheck-demo
 make campaign-demo
 make failure-memory-demo
+make site-demo-export
 make provider-config-check
 make provider-preview-public
 make provider-fake-smoke
@@ -443,6 +461,10 @@ a sibling framework checkout, the published `v1.0.0` tag, or explicit
 only ignored runtime outputs and does not call hosted providers, run a
 shell-backed campaign loop, create accepted knowledge, source metadata,
 verifier/gate authority, promotion, or human review.
+`make site-demo-export` regenerates committed website fixture JSON under
+`examples/site-data/` from `cosheaf site export --demo`. It uses a sibling
+framework checkout when available and writes demo-only display data, not
+accepted knowledge or review authority.
 `make workspace` remains available as a compatibility alias for
 `make workspace-info`.
 On Windows, if `bash` is installed but not on `PATH`, run the demo with an
