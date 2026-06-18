@@ -16,7 +16,7 @@ COSHEAF_FRAMEWORK_ROOT=../tcs-cosheaf bash scripts/demo_campaign.sh
 ```
 
 When no sibling checkout is present, the script installs the published
-`v0.11.0` tag. To test another source, set an explicit ref:
+`v0.12.0` tag. To test another source, set an explicit ref:
 
 ```bash
 COSHEAF_FRAMEWORK_REF=<tag-or-commit> bash scripts/demo_campaign.sh

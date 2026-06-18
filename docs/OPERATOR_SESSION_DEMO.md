@@ -1,6 +1,6 @@
 # Operator Session Demo
 
-This demo shows the workspace side of the `v0.11.0` operator-session and
+This demo shows the workspace side of the `v0.12.0` operator-session and
 review-handoff workflow. It is a local, review-only workflow for the example
 private issue; it is not an agent runtime and it does not add accepted
 knowledge.
@@ -19,11 +19,11 @@ bash scripts/demo_operator_session.sh
 
 The script automatically uses `../tcs-cosheaf` when that checkout exists. This
 lets framework development exercise local operator-session changes while the
-workspace default remains pinned to the published `v0.11.0` tag. When no local
+workspace default remains pinned to the published `v0.12.0` tag. When no local
 checkout is available, the script installs:
 
 ```bash
-python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.11.0"
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.12.0"
 ```
 
 Override the source with `COSHEAF_FRAMEWORK_REF=<ref>`, or use an explicit

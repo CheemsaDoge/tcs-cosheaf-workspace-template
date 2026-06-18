@@ -3,7 +3,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PYTHON_BIN="${PYTHON:-python}"
-FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-v0.11.0}"
+FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-v0.12.0}"
 OUTPUT_DIR="${COSHEAF_PROVIDER_SMOKE_OUTPUT_DIR:-.cosheaf/provider-fake-smoke}"
 ISSUE_ID="${COSHEAF_PROVIDER_SMOKE_ISSUE:-issue.example-private-claim}"
 MODE="${1:-all}"
