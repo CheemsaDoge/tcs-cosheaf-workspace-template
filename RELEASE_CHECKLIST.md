@@ -6,10 +6,10 @@ keeps release-followup changes focused on reproducible workspace setup.
 ## Current Baseline
 
 - [x] Workspace template CI installs the framework through `make install`,
-  which pins the immutable `v0.11.0` tag:
-  `python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.11.0"`.
+  which pins the immutable `v0.12.0` tag:
+  `python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.12.0"`.
 - [x] Quickstart, README, Makefile, and demo scripts use the framework
-  `v0.11.0` tag instead of tracking `main`; demos that support local framework
+  `v0.12.0` tag instead of tracking `main`; demos that support local framework
   development still allow explicit local-checkout overrides.
 - [x] License policy is Apache-2.0 and the repository includes a root `LICENSE`.
 - [x] The private workspace demo is represented by
@@ -51,7 +51,7 @@ Before updating this template to a later framework release:
 ## Workspace Demo Hardening
 
 - [x] Workspace template CI still installs `tcs-cosheaf` from immutable
-  `@v0.11.0`, not `@main`.
+  `@v0.12.0`, not `@main`.
 - [x] Workspace template CI runs workspace info, validation, gatekeeper, PR
   checklist gate, example issue context build, and whitespace checks.
 - [x] The clean-clone demo remains a private draft claim depending on the
@@ -64,7 +64,7 @@ Before updating this template to a later framework release:
 - [x] `make operator-session-demo` delegates to
   `scripts/demo_operator_session.sh`.
 - [x] The demo uses a local `../tcs-cosheaf` checkout when present and falls
-  back to the configured `COSHEAF_FRAMEWORK_REF`, which defaults to `v0.11.0`.
+  back to the configured `COSHEAF_FRAMEWORK_REF`, which defaults to `v0.12.0`.
 - [x] Runtime output stays under ignored `.cosheaf/` and `context/TASKS/`
   paths.
 - [x] Handoff export is previewed with `--dry-run`; no `reviews/operator/`
