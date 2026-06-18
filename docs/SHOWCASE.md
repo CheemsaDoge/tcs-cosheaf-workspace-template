@@ -94,7 +94,7 @@ benchmark rows are recorded as skipped rather than treated as passes.
 The showcase script runs the same core commands that a user can run manually:
 
 ```bash
-python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.12.0"
+python -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v1.0.0"
 bash scripts/bootstrap_public_kb.sh .cosheaf/public-kb/tcs-kb-public
 cosheaf workspace info
 cosheaf validate

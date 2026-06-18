@@ -32,7 +32,7 @@ PY
   fi
 }
 
-run "$PYTHON_BIN" -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v0.12.0"
+run "$PYTHON_BIN" -m pip install "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@v1.0.0"
 add_python_user_scripts_to_path
 run cosheaf workspace info
 run cosheaf validate

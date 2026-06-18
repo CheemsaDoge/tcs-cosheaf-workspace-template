@@ -3,7 +3,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PYTHON_BIN="${PYTHON:-python}"
-FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-v0.12.0}"
+FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-v1.0.0}"
 FRAMEWORK_ROOT="${COSHEAF_FRAMEWORK_ROOT:-$REPO_ROOT/../tcs-cosheaf}"
 OUTPUT_DIR="${COSHEAF_REVIEWABLE_WORKFLOW_DEMO_OUTPUT_DIR:-.cosheaf/reviewable-workflow-demo}"
 ISSUE_ID="${COSHEAF_REVIEWABLE_WORKFLOW_DEMO_ISSUE:-issue.example-private-claim}"
@@ -144,7 +144,7 @@ Use a sibling checkout:
 or install a newer explicit ref:
   COSHEAF_FRAMEWORK_REF=<tag-or-commit> bash scripts/demo_reviewable_workflow.sh
 
-The published v0.12.0 tag contains the workflow draft-proposal and handoff
+The published v1.0.0 tag contains the workflow draft-proposal and handoff
 surface required by this demo.
 EOF
     exit 1
