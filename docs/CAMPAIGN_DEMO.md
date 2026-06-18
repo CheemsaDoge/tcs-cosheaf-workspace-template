@@ -15,11 +15,11 @@ The script uses a sibling framework checkout when available:
 COSHEAF_FRAMEWORK_ROOT=../tcs-cosheaf bash scripts/demo_campaign.sh
 ```
 
-Until `v0.11.0` is published, keep a local V16-capable framework checkout or
-set an explicit ref:
+When no sibling checkout is present, the script installs the published
+`v0.11.0` tag. To test another source, set an explicit ref:
 
 ```bash
-COSHEAF_FRAMEWORK_REF=<v0.11-capable-ref> bash scripts/demo_campaign.sh
+COSHEAF_FRAMEWORK_REF=<tag-or-commit> bash scripts/demo_campaign.sh
 ```
 
 The demo:

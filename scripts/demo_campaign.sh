@@ -3,7 +3,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PYTHON_BIN="${PYTHON:-python}"
-FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-}"
+FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-v0.11.0}"
 FRAMEWORK_ROOT="${COSHEAF_FRAMEWORK_ROOT:-$REPO_ROOT/../tcs-cosheaf}"
 EVAL_REPO_ROOT="${COSHEAF_CAMPAIGN_EVAL_REPO_ROOT:-$FRAMEWORK_ROOT}"
 OUTPUT_DIR="${COSHEAF_CAMPAIGN_DEMO_OUTPUT_DIR:-.cosheaf/campaign-demo}"
@@ -172,17 +172,6 @@ EOF
 
 if [[ "${COSHEAF_SKIP_INSTALL:-0}" != "1" ]]; then
   if ! use_local_framework_if_available; then
-    if [[ -z "$FRAMEWORK_REF" ]]; then
-      cat >&2 <<'EOF'
-Campaign demo requires a V16-capable framework checkout or explicit ref.
-
-Use one of:
-  COSHEAF_FRAMEWORK_ROOT=../tcs-cosheaf bash scripts/demo_campaign.sh
-  COSHEAF_SKIP_INSTALL=1 COSHEAF_CMD="python -m cosheaf.cli" PYTHONPATH=../tcs-cosheaf bash scripts/demo_campaign.sh
-  COSHEAF_FRAMEWORK_REF=<v0.11-capable-ref> bash scripts/demo_campaign.sh
-EOF
-      exit 2
-    fi
     run "$PYTHON_BIN" -m pip install \
       "git+https://github.com/CheemsaDoge/tcs-cosheaf.git@${FRAMEWORK_REF}"
     add_python_user_scripts_to_path
