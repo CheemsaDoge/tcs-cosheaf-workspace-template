@@ -3,7 +3,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PYTHON_BIN="${PYTHON:-python}"
-FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-v0.10.0}"
+FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-v0.11.0}"
 FRAMEWORK_ROOT="${COSHEAF_FRAMEWORK_ROOT:-$REPO_ROOT/../tcs-cosheaf}"
 OUTPUT_DIR="${COSHEAF_OPERATOR_DEMO_OUTPUT_DIR:-.cosheaf/operator-session-demo}"
 ISSUE_ID="${COSHEAF_OPERATOR_DEMO_ISSUE:-issue.example-private-claim}"
