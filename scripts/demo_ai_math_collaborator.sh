@@ -4,7 +4,7 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PYTHON_BIN="${PYTHON:-python}"
 BASH_BIN="${COSHEAF_DEMO_BASH:-${BASH:-bash}}"
-FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-v0.12.0}"
+FRAMEWORK_REF="${COSHEAF_FRAMEWORK_REF:-v1.0.0}"
 FRAMEWORK_ROOT="${COSHEAF_FRAMEWORK_ROOT:-$REPO_ROOT/../tcs-cosheaf}"
 OUTPUT_DIR="${COSHEAF_AI_MATH_DEMO_OUTPUT_DIR:-.cosheaf/ai-math-collaborator-demo}"
 BENCHMARK_REPORT_DIR="${COSHEAF_AI_MATH_BENCHMARK_REPORT_DIR:-.cosheaf/ai-math-collaborator-demo}"

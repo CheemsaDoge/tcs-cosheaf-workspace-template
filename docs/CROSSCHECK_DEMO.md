@@ -31,7 +31,7 @@ COSHEAF_CHECKER_EVAL_REPO_ROOT=/path/to/tcs-cosheaf \
 bash scripts/demo_crosscheck.sh
 ```
 
-The published `v0.12.0` tag contains the V15 checker/cross-check CLI surface.
+The published `v1.0.0` tag contains the V15 checker/cross-check CLI surface.
 The separate eval case file still comes from a framework repository checkout.
 
 The demo:

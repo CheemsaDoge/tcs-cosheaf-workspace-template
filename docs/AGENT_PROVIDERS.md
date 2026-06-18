@@ -32,7 +32,7 @@ knowledge, does not promote artifacts, and does not mark human review complete.
 The public KB remains readonly.
 
 The provider and hosted-worker orchestrator commands are included in the
-`v0.12.0` framework tag, so the smoke installs `tcs-cosheaf` from `v0.12.0` by
+`v1.0.0` framework tag, so the smoke installs `tcs-cosheaf` from `v1.0.0` by
 default. Override the source with `COSHEAF_FRAMEWORK_REF=<ref>`, or use a local
 framework checkout with:
 
