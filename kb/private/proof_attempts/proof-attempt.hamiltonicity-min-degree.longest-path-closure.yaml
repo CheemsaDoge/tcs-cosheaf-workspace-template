@@ -1,0 +1,75 @@
+id: proof-attempt.hamiltonicity-min-degree.longest-path-closure
+type: proof_attempt
+title: Failed longest-path Hamiltonicity proof attempt
+domain:
+  - graph-theory
+status: draft
+created_at: 2026-06-19T00:00:00Z
+updated_at: 2026-06-19T00:00:00Z
+authors:
+  - workspace-user
+depends_on:
+  - definition.graph
+supersedes: []
+tags:
+  - closed-loop-case-study
+  - failure-memory
+  - graph-theory
+  - private-draft
+  - proof-attempt
+statement: |
+  This draft proof-attempt artifact records that the direct longest-path
+  approach for the Hamiltonicity minimum-degree question is incomplete. The
+  path endpoint degree argument yields a cycle, but the available assumptions
+  do not justify extending that cycle to every vertex.
+evidence:
+  - kind: internal_note
+    path: examples/attempts/hamiltonicity-min-degree-attempt-1.md
+    summary: R2.1 attempt record describing the failed cycle-extension step.
+sources:
+  - kind: internal_note
+    title: Hamiltonicity minimum-degree attempt 1
+    authors:
+      - workspace-user
+    year: 2026
+    notes: Internal attempt record only; not a published source.
+review:
+  state: requested
+  notes: |
+    Draft failure-memory artifact for the closed-loop case study. No human
+    review, proof, refutation, or accepted status is claimed.
+risk:
+  level: low
+  notes: |
+    This artifact records a failed proof direction only. It is not a candidate
+    theorem, counterexample, proof, or accepted result.
+failure_log:
+  - failure_id: failure.hamiltonicity-min-degree.longest-path-extension
+    attempted_at: 2026-06-19T00:00:00Z
+    recorded_by: workspace-agent
+    origin: agent
+    attempt_kind: proof_attempt
+    target: issue.hamiltonicity-min-degree-counterexample
+    direction: |
+      Try to prove Hamiltonicity by taking a longest path, forcing a cycle
+      from endpoint degree at least 2, and extending that cycle to all
+      vertices.
+    summary: |
+      The endpoint-degree step shows that some cycle exists in a finite
+      connected simple graph with minimum degree at least 2.
+    failed_because: |
+      The extension step is unsupported: minimum degree at least 2 does not
+      ensure that vertices outside a current cycle have two adjacent insertion
+      points or otherwise force a spanning cycle.
+    evidence_paths:
+      - examples/attempts/hamiltonicity-min-degree-attempt-1.md
+    related_verifier_results: []
+    related_counterexample_candidates: []
+    next_possible_directions:
+      - Search small connected simple graphs with minimum degree at least 2 for a non-Hamiltonian example.
+      - If a finite candidate graph is recorded later, attach a checker that enumerates Hamiltonian cycles.
+    status: open
+    limitations: |
+      This is failed-attempt memory only. It is not proof, refutation,
+      verifier success, gate success, human review, promotion evidence, or
+      accepted knowledge.
