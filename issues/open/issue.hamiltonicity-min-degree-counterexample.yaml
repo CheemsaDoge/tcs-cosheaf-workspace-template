@@ -1,0 +1,50 @@
+id: issue.hamiltonicity-min-degree-counterexample
+type: issue
+title: Check a small Hamiltonicity minimum-degree question
+status: open
+created_at: "2026-06-19T00:00:00Z"
+updated_at: "2026-06-19T00:00:00Z"
+authors:
+  - workspace-user
+severity: low
+description: |
+  Summary:
+  Determine whether every finite connected simple graph with minimum degree at
+  least 2 has a Hamiltonian cycle, or whether a small counterexample can be
+  found and checked.
+
+  Research question:
+  Does every finite connected simple graph with minimum degree at least 2 have
+  a Hamiltonian cycle, or can a small counterexample be found and checked?
+
+  Expected outputs:
+  - Build and inspect a context pack for this issue.
+  - Record at least one failed or incomplete proof/construction attempt.
+  - Preserve the failed direction as failure memory.
+  - Add exactly one private draft candidate result later, likely either a
+    counterexample or a corrected claim.
+  - Attach reproducible checker evidence if a finite candidate graph is added.
+  - Prepare a human review handoff packet.
+  - Write a final waiting-for-review or reviewed-decision report.
+
+  Review criteria:
+  - The graph conventions must be clear enough for a human reviewer.
+  - The candidate result must remain draft/private until real review is
+    supplied.
+  - Any checker must state exactly what it checks and what it does not prove.
+  - Failure memory must preserve limitations honestly.
+  - Public-KB movement requires source metadata, policy checks, and real human
+    review.
+
+  Non-authority boundaries:
+  - This local issue is not a GitHub issue action and does not create accepted
+    knowledge.
+  - No candidate result is recorded by this issue file.
+  - No hosted provider call, human review, verifier pass, gate pass,
+    promotion, or accepted status is created here.
+related_artifacts:
+  - definition.graph
+tags:
+  - closed-loop-case-study
+  - graph-theory
+  - private-draft

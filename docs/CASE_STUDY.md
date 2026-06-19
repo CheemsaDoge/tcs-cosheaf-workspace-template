@@ -1,10 +1,15 @@
 # Closed-Loop Research Case Study
 
-Status: scoped only
+Status: local research issue opened
 
 Scope document: [Closed-Loop Case Study Scope](CASE_STUDY_SCOPE.md)
 
-GitHub issue: CheemsaDoge/tcs-cosheaf-workspace-template#100
+Scope GitHub issue: CheemsaDoge/tcs-cosheaf-workspace-template#100
+
+Local research issue:
+`issues/open/issue.hamiltonicity-min-degree-counterexample.yaml`
+
+R1.1 GitHub issue: CheemsaDoge/tcs-cosheaf-workspace-template#102
 
 ## Current State
 
@@ -15,12 +20,13 @@ Does every finite connected simple graph with minimum degree at least 2 have a
 Hamiltonian cycle, or can a small counterexample be found and checked?
 ```
 
-No candidate theorem, claim, counterexample, proof, accepted artifact, human
-review, verifier pass, or promotion is recorded by this document.
+R1.1 created a local file-based issue for this question. No candidate theorem,
+claim, counterexample, proof, accepted artifact, human review, verifier pass,
+or promotion is recorded by this document.
 
 ## Planned Workflow
 
-1. Create one local file-based research issue for the question.
+1. Create one local file-based research issue for the question. Done in R1.1.
 2. Build a context pack for that issue and record what context was used.
 3. Record a first attempt, including failure or incompleteness if present.
 4. Convert the failure or incomplete direction into durable failure memory.
@@ -41,7 +47,21 @@ review, verifier pass, or promotion is recorded by this document.
 - A final waiting-for-review report is acceptable if no real human review is
   supplied.
 
+## Current Local Issue
+
+The local issue records:
+
+- the research question;
+- expected outputs for the closed-loop workflow;
+- review criteria;
+- non-authority boundaries;
+- the current dependency on the draft workspace seed `definition.graph`.
+
+It is repository research context only. It is not accepted knowledge and does
+not add any candidate result.
+
 ## Next Step
 
-R1.1 should create one local research issue under `issues/open/` that restates
-the question, expected outputs, review criteria, and non-authority boundaries.
+R1.2 should build and inspect a context pack for
+`issue.hamiltonicity-min-degree-counterexample`, then document what context was
+used and what gaps remain.
