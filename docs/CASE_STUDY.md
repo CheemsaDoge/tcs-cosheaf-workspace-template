@@ -1,6 +1,6 @@
 # Closed-Loop Research Case Study
 
-Status: human-reviewed; kept as private draft
+Status: final report complete; human-reviewed and kept as private draft
 
 Scope document: [Closed-Loop Case Study Scope](CASE_STUDY_SCOPE.md)
 
@@ -46,6 +46,11 @@ R5.1 GitHub issue: CheemsaDoge/tcs-cosheaf-workspace-template#116
 Human review decision:
 [Human review decision for K2,3 candidate](../reviews/human/hamiltonicity-min-degree-k23-decision.md)
 
+R6.1 GitHub issue: CheemsaDoge/tcs-cosheaf-workspace-template#118
+
+Final report:
+[Closed-loop research report](../reports/closed-loop-research-report.md)
+
 ## Current State
 
 R0.1 selected the case study:
@@ -62,9 +67,9 @@ converted that failed direction into structured failure memory on a private
 draft `proof_attempt` artifact. R3.1 added exactly one private draft
 counterexample candidate, `K_{2,3}`. R3.2 attached reproducible local checker
 evidence for that finite graph. R4.1 prepared a human review request packet.
-R5.1 recorded maintainer review completion with decision `keep_draft`. No
-proof, accepted artifact, verifier pass, public-KB write, or promotion is
-recorded by this document.
+R5.1 recorded maintainer review completion with decision `keep_draft`. R6.1
+added the final closed-loop report. No proof, accepted artifact, verifier
+pass, public-KB write, or promotion is recorded by this document.
 
 ## Planned Workflow
 
@@ -81,7 +86,7 @@ recorded by this document.
 7. Export a review handoff packet for a human reviewer. Done in R4.1.
 8. Record a real review decision only if a maintainer supplies one. Done in
    R5.1.
-9. Write a final report for website/showcase use.
+9. Write a final report for website/showcase use. Done in R6.1.
 
 ## Boundaries
 
@@ -231,6 +236,23 @@ The recorded decision is `keep_draft`. The artifact review state is
 source-metadata upgrade, public-KB write, verifier pass, gate-authority claim,
 or promotion is recorded.
 
+## Current Final Report
+
+R6.1 added the final report:
+
+```text
+reports/closed-loop-research-report.md
+```
+
+The report summarizes the original question, context, attempt, failure memory,
+candidate, checker evidence, review handoff, human review outcome, final
+lifecycle state, Cosheaf value, and remaining limitations.
+
+R7 public KB contribution is intentionally skipped because the recorded review
+decision is `keep_draft`, not `candidate_for_public_kb`.
+
 ## Next Step
 
-R6.1 should produce the final closed-loop report for website/showcase use.
+Longplan C is complete for this case study unless a future maintainer supplies
+a new review decision that explicitly authorizes revision or public-KB
+proposal work.
