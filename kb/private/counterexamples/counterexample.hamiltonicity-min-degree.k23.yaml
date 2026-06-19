@@ -1,0 +1,67 @@
+id: counterexample.hamiltonicity-min-degree.k23
+type: counterexample
+title: Draft K2,3 Hamiltonicity minimum-degree counterexample
+domain:
+  - graph-theory
+status: draft
+created_at: 2026-06-19T00:00:00Z
+updated_at: 2026-06-19T00:00:00Z
+authors:
+  - workspace-user
+depends_on:
+  - definition.graph
+  - proof-attempt.hamiltonicity-min-degree.longest-path-closure
+supersedes: []
+tags:
+  - closed-loop-case-study
+  - counterexample-candidate
+  - graph-theory
+  - hamiltonicity
+  - private-draft
+statement: |
+  Candidate counterexample to the statement: every finite connected simple
+  graph with minimum degree at least 2 has a Hamiltonian cycle.
+
+  Let G be the complete bipartite graph K_{2,3}. Its vertex set is partitioned
+  into A = {a1, a2} and B = {b1, b2, b3}. Its edge set contains exactly the
+  six cross-part edges:
+
+  - a1-b1
+  - a1-b2
+  - a1-b3
+  - a2-b1
+  - a2-b2
+  - a2-b3
+
+  Under the standard finite simple undirected graph convention, G is connected
+  and has minimum degree 2: vertices in A have degree 3, and vertices in B
+  have degree 2.
+
+  The candidate non-Hamiltonicity reason is that every cycle in a bipartite
+  graph alternates between the two parts, so a Hamiltonian cycle would have to
+  use the same number of vertices from A and B. K_{2,3} has unequal part sizes
+  2 and 3, so this candidate should have no Hamiltonian cycle.
+
+  This artifact is a draft candidate only. R3.2 must attach reproducible
+  checker evidence before the workflow treats this as checked evidence.
+evidence: []
+sources:
+  - kind: internal_note
+    title: Closed-loop case study draft candidate note
+    authors:
+      - workspace-user
+    year: 2026
+    notes: |
+      Internal draft candidate generated from the R2.2 failure-memory next
+      direction. No external source is claimed here.
+review:
+  state: requested
+  notes: |
+    Draft candidate only. No human review, accepted status, formal alignment,
+    verifier pass, gate pass, or promotion is claimed.
+risk:
+  level: medium
+  notes: |
+    Informal candidate reasoning only. Checker evidence and human review are
+    still required; the bipartite-cycle argument has not been independently
+    checked in this artifact.
