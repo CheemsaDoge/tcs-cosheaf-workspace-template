@@ -1,6 +1,6 @@
 # Closed-Loop Research Case Study
 
-Status: failure memory recorded
+Status: draft candidate recorded
 
 Scope document: [Closed-Loop Case Study Scope](CASE_STUDY_SCOPE.md)
 
@@ -26,6 +26,11 @@ R2.2 GitHub issue: CheemsaDoge/tcs-cosheaf-workspace-template#108
 Failure memory artifact:
 `kb/private/proof_attempts/proof-attempt.hamiltonicity-min-degree.longest-path-closure.yaml`
 
+R3.1 GitHub issue: CheemsaDoge/tcs-cosheaf-workspace-template#110
+
+Draft candidate artifact:
+`kb/private/counterexamples/counterexample.hamiltonicity-min-degree.k23.yaml`
+
 ## Current State
 
 R0.1 selected the case study:
@@ -39,9 +44,10 @@ R1.1 created a local file-based issue for this question. R1.2 built and
 inspected a cards-only context pack for that issue. R2.1 recorded a failed or
 incomplete proof attempt based on longest paths and cycle extension. R2.2
 converted that failed direction into structured failure memory on a private
-draft `proof_attempt` artifact. No candidate theorem, claim, counterexample,
-proof, accepted artifact, human review, verifier pass, or promotion is
-recorded by this document.
+draft `proof_attempt` artifact. R3.1 added exactly one private draft
+counterexample candidate, `K_{2,3}`. No proof, checked counterexample evidence,
+accepted artifact, human review, verifier pass, or promotion is recorded by
+this document.
 
 ## Planned Workflow
 
@@ -52,7 +58,7 @@ recorded by this document.
    Done in R2.1.
 4. Convert the failure or incomplete direction into durable failure memory.
    Done in R2.2.
-5. Add exactly one private draft candidate result.
+5. Add exactly one private draft candidate result. Done in R3.1.
 6. Attach reproducible checker evidence or explain why no checker applies.
 7. Export a review handoff packet for a human reviewer.
 8. Record a real review decision only if a maintainer supplies one.
@@ -135,7 +141,23 @@ The failure memory is attached to a private draft `proof_attempt` artifact. It
 is research memory only, not proof, refutation, verifier success, gate
 success, human review, promotion evidence, or accepted knowledge.
 
+## Current Draft Candidate
+
+R3.1 records one private draft counterexample candidate:
+
+```text
+counterexample.hamiltonicity-min-degree.k23
+```
+
+The candidate is the complete bipartite graph `K_{2,3}` with part sizes 2 and
+3. The draft reasoning is that the graph is connected, simple, finite, and has
+minimum degree 2, while any cycle in a bipartite graph alternates parts and
+therefore cannot be Hamiltonian on unequal part sizes.
+
+This is not accepted knowledge. No checker has been attached yet, and no human
+review has been supplied.
+
 ## Next Step
 
-R3.1 should add exactly one private draft candidate result, keeping it
-non-accepted and linked to the recorded failure memory where relevant.
+R3.2 should attach reproducible checker evidence for the `K_{2,3}` candidate
+or clearly record why no checker applies.
