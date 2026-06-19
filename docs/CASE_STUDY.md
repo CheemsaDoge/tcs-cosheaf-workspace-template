@@ -1,6 +1,6 @@
 # Closed-Loop Research Case Study
 
-Status: review handoff prepared; waiting for human review
+Status: human-reviewed; kept as private draft
 
 Scope document: [Closed-Loop Case Study Scope](CASE_STUDY_SCOPE.md)
 
@@ -41,6 +41,11 @@ R4.1 GitHub issue: CheemsaDoge/tcs-cosheaf-workspace-template#114
 Review handoff packet:
 [Human review request for K2,3 candidate](../reviews/requests/hamiltonicity-min-degree-k23-review.md)
 
+R5.1 GitHub issue: CheemsaDoge/tcs-cosheaf-workspace-template#116
+
+Human review decision:
+[Human review decision for K2,3 candidate](../reviews/human/hamiltonicity-min-degree-k23-decision.md)
+
 ## Current State
 
 R0.1 selected the case study:
@@ -57,7 +62,8 @@ converted that failed direction into structured failure memory on a private
 draft `proof_attempt` artifact. R3.1 added exactly one private draft
 counterexample candidate, `K_{2,3}`. R3.2 attached reproducible local checker
 evidence for that finite graph. R4.1 prepared a human review request packet.
-No proof, accepted artifact, human review, verifier pass, or promotion is
+R5.1 recorded maintainer review completion with decision `keep_draft`. No
+proof, accepted artifact, verifier pass, public-KB write, or promotion is
 recorded by this document.
 
 ## Planned Workflow
@@ -73,7 +79,8 @@ recorded by this document.
 6. Attach reproducible checker evidence or explain why no checker applies.
    Done in R3.2.
 7. Export a review handoff packet for a human reviewer. Done in R4.1.
-8. Record a real review decision only if a maintainer supplies one.
+8. Record a real review decision only if a maintainer supplies one. Done in
+   R5.1.
 9. Write a final report for website/showcase use.
 
 ## Boundaries
@@ -166,8 +173,9 @@ The candidate is the complete bipartite graph `K_{2,3}` with part sizes 2 and
 minimum degree 2, while any cycle in a bipartite graph alternates parts and
 therefore cannot be Hamiltonian on unequal part sizes.
 
-This is not accepted knowledge. Checker evidence has been attached, but no
-human review has been supplied.
+This is not accepted knowledge. Checker evidence has been attached. Human
+review has been recorded with decision `keep_draft`, so the artifact remains
+a private draft.
 
 ## Current Checker Evidence
 
@@ -205,13 +213,24 @@ The packet is informational only. It includes the target artifact, original
 issue, statement, dependencies, sources, checker status, failed attempt and
 failure-memory links, known risks, and concrete reviewer questions.
 
-The draft candidate is still not human-reviewed. This handoff does not create
-accepted status, formal proof, verifier authority, gate authority, public KB
-movement, or promotion authority.
+At the time it was created, this handoff did not create accepted status,
+formal proof, verifier authority, gate authority, public KB movement, or
+promotion authority. It was later followed by the R5.1 human review decision
+record below.
+
+## Current Human Review Decision
+
+R5.1 recorded the maintainer's review input:
+
+```text
+reviews/human/hamiltonicity-min-degree-k23-decision.md
+```
+
+The recorded decision is `keep_draft`. The artifact review state is
+`human_reviewed`, but the artifact status remains `draft`. No accepted status,
+source-metadata upgrade, public-KB write, verifier pass, gate-authority claim,
+or promotion is recorded.
 
 ## Next Step
 
-R5.1 can only record an actual human review decision if a maintainer supplies
-real review content. If no review is supplied, the case study should remain in
-the waiting-for-review state and proceed only to a final waiting-for-review
-report.
+R6.1 should produce the final closed-loop report for website/showcase use.
