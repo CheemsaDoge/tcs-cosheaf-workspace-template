@@ -1,6 +1,6 @@
 # Closed-Loop Research Case Study
 
-Status: checker evidence attached
+Status: review handoff prepared; waiting for human review
 
 Scope document: [Closed-Loop Case Study Scope](CASE_STUDY_SCOPE.md)
 
@@ -36,6 +36,11 @@ R3.2 GitHub issue: CheemsaDoge/tcs-cosheaf-workspace-template#112
 Checker evidence:
 `evidence/hamiltonicity-min-degree-k23-check.json`
 
+R4.1 GitHub issue: CheemsaDoge/tcs-cosheaf-workspace-template#114
+
+Review handoff packet:
+[Human review request for K2,3 candidate](../reviews/requests/hamiltonicity-min-degree-k23-review.md)
+
 ## Current State
 
 R0.1 selected the case study:
@@ -51,8 +56,9 @@ incomplete proof attempt based on longest paths and cycle extension. R2.2
 converted that failed direction into structured failure memory on a private
 draft `proof_attempt` artifact. R3.1 added exactly one private draft
 counterexample candidate, `K_{2,3}`. R3.2 attached reproducible local checker
-evidence for that finite graph. No proof, accepted artifact, human review,
-verifier pass, or promotion is recorded by this document.
+evidence for that finite graph. R4.1 prepared a human review request packet.
+No proof, accepted artifact, human review, verifier pass, or promotion is
+recorded by this document.
 
 ## Planned Workflow
 
@@ -66,7 +72,7 @@ verifier pass, or promotion is recorded by this document.
 5. Add exactly one private draft candidate result. Done in R3.1.
 6. Attach reproducible checker evidence or explain why no checker applies.
    Done in R3.2.
-7. Export a review handoff packet for a human reviewer.
+7. Export a review handoff packet for a human reviewer. Done in R4.1.
 8. Record a real review decision only if a maintainer supplies one.
 9. Write a final report for website/showcase use.
 
@@ -187,8 +193,25 @@ The checker does not prove any general theorem, does not perform human review,
 does not establish informal/formal semantic alignment, and does not create
 accepted status, verifier authority, gate authority, or promotion authority.
 
+## Current Review Handoff
+
+R4.1 prepared the review packet:
+
+```text
+reviews/requests/hamiltonicity-min-degree-k23-review.md
+```
+
+The packet is informational only. It includes the target artifact, original
+issue, statement, dependencies, sources, checker status, failed attempt and
+failure-memory links, known risks, and concrete reviewer questions.
+
+The draft candidate is still not human-reviewed. This handoff does not create
+accepted status, formal proof, verifier authority, gate authority, public KB
+movement, or promotion authority.
+
 ## Next Step
 
-R4.1 should prepare a human review handoff packet for the draft candidate,
-including the original issue, statement, dependencies, failure memory, checker
-status, risks, and explicit reviewer questions.
+R5.1 can only record an actual human review decision if a maintainer supplies
+real review content. If no review is supplied, the case study should remain in
+the waiting-for-review state and proceed only to a final waiting-for-review
+report.
