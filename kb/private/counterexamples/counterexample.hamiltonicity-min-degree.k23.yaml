@@ -42,9 +42,21 @@ statement: |
   use the same number of vertices from A and B. K_{2,3} has unequal part sizes
   2 and 3, so this candidate should have no Hamiltonian cycle.
 
-  This artifact is a draft candidate only. R3.2 must attach reproducible
-  checker evidence before the workflow treats this as checked evidence.
-evidence: []
+  This artifact is a draft candidate only. The attached checker evidence is a
+  finite enumeration check for this one graph; it is not human review or
+  accepted knowledge.
+evidence:
+  - kind: python_checker
+    path: checkers/check_k23_hamiltonicity.py
+    summary: |
+      Local Python checker for K_{2,3}; Cosheaf gate runs this script against
+      the artifact path.
+  - kind: internal_note
+    path: evidence/hamiltonicity-min-degree-k23-check.json
+    summary: |
+      Saved JSON output from `python checkers/check_k23_hamiltonicity.py
+      --json`: connected=true, simple=true, min_degree=2,
+      hamiltonian_cycle_count=0, status=pass.
 sources:
   - kind: internal_note
     title: Closed-loop case study draft candidate note
@@ -62,6 +74,6 @@ review:
 risk:
   level: medium
   notes: |
-    Informal candidate reasoning only. Checker evidence and human review are
-    still required; the bipartite-cycle argument has not been independently
-    checked in this artifact.
+    Checker evidence is attached for the finite K_{2,3} graph only. Human
+    review is still required; checker pass is not accepted status, verifier
+    authority, gate authority, or promotion authority.

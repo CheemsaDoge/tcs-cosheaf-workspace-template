@@ -1,6 +1,6 @@
 # Closed-Loop Research Case Study
 
-Status: draft candidate recorded
+Status: checker evidence attached
 
 Scope document: [Closed-Loop Case Study Scope](CASE_STUDY_SCOPE.md)
 
@@ -31,6 +31,11 @@ R3.1 GitHub issue: CheemsaDoge/tcs-cosheaf-workspace-template#110
 Draft candidate artifact:
 `kb/private/counterexamples/counterexample.hamiltonicity-min-degree.k23.yaml`
 
+R3.2 GitHub issue: CheemsaDoge/tcs-cosheaf-workspace-template#112
+
+Checker evidence:
+`evidence/hamiltonicity-min-degree-k23-check.json`
+
 ## Current State
 
 R0.1 selected the case study:
@@ -45,9 +50,9 @@ inspected a cards-only context pack for that issue. R2.1 recorded a failed or
 incomplete proof attempt based on longest paths and cycle extension. R2.2
 converted that failed direction into structured failure memory on a private
 draft `proof_attempt` artifact. R3.1 added exactly one private draft
-counterexample candidate, `K_{2,3}`. No proof, checked counterexample evidence,
-accepted artifact, human review, verifier pass, or promotion is recorded by
-this document.
+counterexample candidate, `K_{2,3}`. R3.2 attached reproducible local checker
+evidence for that finite graph. No proof, accepted artifact, human review,
+verifier pass, or promotion is recorded by this document.
 
 ## Planned Workflow
 
@@ -60,6 +65,7 @@ this document.
    Done in R2.2.
 5. Add exactly one private draft candidate result. Done in R3.1.
 6. Attach reproducible checker evidence or explain why no checker applies.
+   Done in R3.2.
 7. Export a review handoff packet for a human reviewer.
 8. Record a real review decision only if a maintainer supplies one.
 9. Write a final report for website/showcase use.
@@ -154,10 +160,35 @@ The candidate is the complete bipartite graph `K_{2,3}` with part sizes 2 and
 minimum degree 2, while any cycle in a bipartite graph alternates parts and
 therefore cannot be Hamiltonian on unequal part sizes.
 
-This is not accepted knowledge. No checker has been attached yet, and no human
-review has been supplied.
+This is not accepted knowledge. Checker evidence has been attached, but no
+human review has been supplied.
+
+## Current Checker Evidence
+
+R3.2 added a local checker:
+
+```bash
+python checkers/check_k23_hamiltonicity.py --json
+```
+
+The committed output is:
+
+```text
+evidence/hamiltonicity-min-degree-k23-check.json
+```
+
+The checker enumerates all vertex permutations with a fixed start vertex and
+checks whether consecutive vertices, including the wraparound edge, form a
+Hamiltonian cycle. Its recorded status is `pass` for the finite `K_{2,3}`
+candidate: connected simple graph, minimum degree 2, and zero Hamiltonian
+cycles.
+
+The checker does not prove any general theorem, does not perform human review,
+does not establish informal/formal semantic alignment, and does not create
+accepted status, verifier authority, gate authority, or promotion authority.
 
 ## Next Step
 
-R3.2 should attach reproducible checker evidence for the `K_{2,3}` candidate
-or clearly record why no checker applies.
+R4.1 should prepare a human review handoff packet for the draft candidate,
+including the original issue, statement, dependencies, failure memory, checker
+status, risks, and explicit reviewer questions.
