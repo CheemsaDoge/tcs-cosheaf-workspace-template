@@ -1,6 +1,6 @@
 # Closed-Loop Research Case Study
 
-Status: context pack inspected
+Status: first attempt recorded
 
 Scope document: [Closed-Loop Case Study Scope](CASE_STUDY_SCOPE.md)
 
@@ -16,6 +16,11 @@ R1.2 GitHub issue: CheemsaDoge/tcs-cosheaf-workspace-template#104
 Context summary:
 [Hamiltonicity minimum-degree context](../examples/context/hamiltonicity-min-degree-context.md)
 
+R2.1 GitHub issue: CheemsaDoge/tcs-cosheaf-workspace-template#106
+
+First attempt:
+[Hamiltonicity minimum-degree attempt 1](../examples/attempts/hamiltonicity-min-degree-attempt-1.md)
+
 ## Current State
 
 R0.1 selected the case study:
@@ -26,9 +31,10 @@ Hamiltonian cycle, or can a small counterexample be found and checked?
 ```
 
 R1.1 created a local file-based issue for this question. R1.2 built and
-inspected a cards-only context pack for that issue. No candidate theorem,
-claim, counterexample, proof, accepted artifact, human review, verifier pass,
-or promotion is recorded by this document.
+inspected a cards-only context pack for that issue. R2.1 recorded a failed or
+incomplete proof attempt based on longest paths and cycle extension. No
+candidate theorem, claim, counterexample, proof, accepted artifact, human
+review, verifier pass, or promotion is recorded by this document.
 
 ## Planned Workflow
 
@@ -36,6 +42,7 @@ or promotion is recorded by this document.
 2. Build a context pack for that issue and record what context was used. Done
    in R1.2.
 3. Record a first attempt, including failure or incompleteness if present.
+   Done in R2.1.
 4. Convert the failure or incomplete direction into durable failure memory.
 5. Add exactly one private draft candidate result.
 6. Attach reproducible checker evidence or explain why no checker applies.
@@ -90,8 +97,21 @@ It included no accepted artifacts, no full artifact YAML, no failure memory,
 and no checked counterexample evidence. Context is guidance only, not proof or
 review authority.
 
+## Current Attempt
+
+R2.1 records a direct proof attempt:
+
+```text
+Use a longest path to force a cycle, then try to extend that cycle to all
+vertices.
+```
+
+The attempt status is failed/incomplete. The longest-path argument shows that
+a cycle exists under the minimum-degree condition, but it does not show that a
+cycle can be extended to a Hamiltonian cycle. The attempt records no checker
+run, no exhaustive search, and no candidate graph.
+
 ## Next Step
 
-R2.1 should record a first proof or construction attempt for
-`issue.hamiltonicity-min-degree-counterexample`, including any failure or
-incompleteness.
+R2.2 should turn the failed cycle-extension step into structured failure
+memory so later context packs can surface it.
